@@ -57,6 +57,11 @@
     text-transform: uppercase;
     margin-top: 4px;
   }
+  header .stats-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+  }
   header .stats {
     text-align: right;
     font-size: 11px;
@@ -74,6 +79,19 @@
     letter-spacing: 0;
     text-transform: none;
   }
+  header .refresh-btn {
+    background: #cfa15e;
+    color: #1C2B3A;
+    border: none;
+    padding: 7px 14px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  header .refresh-btn:hover { opacity: 0.85; }
   .layout {
     display: flex;
     height: calc(100vh - 100px);
@@ -332,9 +350,12 @@
     <h1>Tatita</h1>
     <p>Soledad Silveyra</p>
   </div>
-  <div class="stats">
-    <b id="stat-total">0</b>
-    <span>Títulos</span>
+  <div class="stats-row">
+    <div class="stats">
+      <b id="stat-total">0</b>
+      <span>Títulos</span>
+    </div>
+    <button class="refresh-btn" onclick="location.href=location.pathname+'?t='+Date.now()">Actualizar</button>
   </div>
 </header>
 
@@ -624,7 +645,7 @@ function selectRow(idx){
 }
 
 function driveDirect(url) {
-  var match = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+  var match = url.match(//d/([a-zA-Z0-9_-]+)/);
   if (match) return 'https://drive.google.com/uc?export=view&id=' + match[1];
   return url;
 }
