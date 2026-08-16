@@ -2,973 +2,739 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Soledad Silveyra — Archivo</title>
-<meta name="description" content="Archivo de la trayectoria de Soledad Silveyra en cine, teatro y televisión.">
-<meta name="theme-color" content="#F7F4EE">
+<title>Tatita — Filmografía</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-/* ==========================================================================
-   CONFIGURACIÓN VISUAL
-   Los colores y tipografías se cambian sólo acá.
-   ========================================================================== */
-:root{
-  --papel:#F7F4EE;         /* fondo crema */
-  --papel-2:#EFEBE2;       /* crema apenas más oscuro */
-  --papel-3:#E5E0D5;       /* bordes suaves */
-  --tinta:#1C1A17;         /* texto principal */
-  --tinta-2:#4B463E;       /* texto secundario */
-  --tinta-3:#736C60;       /* texto terciario (cumple AA sobre crema) */
-  --acento:#7A2E2E;        /* bordó editorial */
-  --acento-cl:#F0E4E2;     /* bordó muy claro */
-  --foco:#1B4D8F;          /* anillo de foco, alto contraste */
-  --linea:#D6D0C3;
-  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
-  --sans:'Jost',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
-body{
-  font-family:var(--sans);background:var(--papel);color:var(--tinta);
-  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
-}
-img{max-width:100%;display:block}
-button{font:inherit;color:inherit}
-
-/* ---- Accesibilidad ---- */
-:focus-visible{outline:3px solid var(--foco);outline-offset:3px;border-radius:2px}
-.salto{position:absolute;left:-9999px;top:0;z-index:999;background:var(--tinta);color:var(--papel);padding:14px 22px;font-weight:600}
-.salto:focus{left:0}
-.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
-
-/* ==========================================================================
-   PORTADA
-   ========================================================================== */
-.nav-sup{
-  display:flex;align-items:center;justify-content:center;gap:34px;
-  padding:22px 32px;flex-wrap:wrap;position:relative;
-}
-.nav-sup .grupo{display:flex;gap:26px;flex-wrap:wrap;justify-content:center}
-.nav-sup a,.nav-sup button.enlace{
-  font-family:var(--serif);font-size:1.05rem;letter-spacing:.02em;
-  color:var(--tinta-2);text-decoration:none;background:none;border:none;cursor:pointer;
-  padding:3px 1px;border-bottom:1px solid transparent;
-}
-.nav-sup a:hover,.nav-sup button.enlace:hover{color:var(--tinta);border-bottom-color:var(--tinta)}
-.marca{
-  font-family:var(--serif);font-size:2rem;font-weight:400;
-  letter-spacing:.16em;text-transform:uppercase;text-align:center;
-  white-space:nowrap;
-}
-.portada{position:relative;background:var(--papel-2)}
-.portada::after{content:"";position:absolute;left:0;right:0;bottom:0;height:90px;
-  background:linear-gradient(to bottom,rgba(247,244,238,0),var(--papel));pointer-events:none}
-.portada .foto{
-  width:100%;height:clamp(300px,58vh,620px);object-fit:cover;
-  /* ENCUADRE DE LA PORTADA
-     Primer valor = horizontal, segundo = vertical.
-     Si la cara queda muy alta, subí el segundo número (35% → 45%).
-     Si queda muy baja, bajalo. */
-  object-position:46% 30%;
-}
-[hidden]{display:none!important}
-.portada .sin-foto{
-  width:100%;height:clamp(300px,58vh,620px);
-  display:flex;align-items:center;justify-content:center;text-align:center;
-  background:linear-gradient(160deg,#EFEBE2,#DED8CB);color:var(--tinta-3);
-  font-family:var(--serif);font-size:1.1rem;font-style:italic;padding:24px;
-}
-.bajada{
-  max-width:940px;margin:0 auto;padding:40px 32px 34px;
-  display:grid;grid-template-columns:1fr 1fr;gap:34px;
-}
-.bajada p{font-family:var(--serif);font-size:1.22rem;line-height:1.62;color:var(--tinta-2)}
-.bajada p .capital{
-  float:left;font-family:var(--serif);font-size:4.1rem;line-height:.78;
-  padding:6px 10px 0 0;color:var(--acento);font-weight:500;
-}
-@media (max-width:760px){.bajada{grid-template-columns:1fr;gap:18px;padding:28px 20px}}
-
-/* ==========================================================================
-   ARCHIVO
-   ========================================================================== */
-.archivo{border-top:1px solid var(--linea);background:var(--papel)}
-.barra{
-  position:sticky;top:0;z-index:40;background:var(--papel);
-  border-bottom:1px solid var(--linea);
-  padding:16px 32px 12px;
-}
-.barra-int{max-width:1400px;margin:0 auto;display:flex;gap:24px;align-items:flex-end;flex-wrap:wrap}
-.campo{flex:1;min-width:250px}
-.campo label{
-  display:block;font-size:.68rem;font-weight:600;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--tinta-3);margin-bottom:6px;
-}
-.campo .caja{position:relative}
-.campo input{
-  width:100%;background:transparent;border:none;border-bottom:1.5px solid var(--tinta-2);
-  font-family:var(--serif);font-size:1.35rem;color:var(--tinta);
-  padding:4px 34px 7px 0;
-}
-.campo input::placeholder{color:var(--tinta-3);font-style:italic}
-.campo input:focus{border-bottom-color:var(--acento);outline-offset:4px}
-.campo .limpiar{
-  position:absolute;right:0;bottom:6px;background:none;border:none;cursor:pointer;
-  color:var(--tinta-3);font-size:1.4rem;line-height:1;padding:2px 6px;
-}
-.campo .limpiar:hover{color:var(--tinta)}
-.medios{display:flex;gap:18px;flex-wrap:wrap;padding-bottom:6px}
-.medios button{
-  background:none;border:none;cursor:pointer;
-  font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--tinta-3);padding:4px 1px;border-bottom:1.5px solid transparent;
-}
-.medios button:hover{color:var(--tinta)}
-.medios button[aria-pressed="true"]{color:var(--acento);border-bottom-color:var(--acento)}
-.cuenta{
-  font-family:var(--serif);font-size:1rem;color:var(--tinta-3);
-  white-space:nowrap;padding-bottom:8px;
-}
-.cuenta b{color:var(--acento);font-weight:600;font-size:1.2rem}
-
-.estado{
-  padding:8px 32px;font-size:.78rem;border-bottom:1px solid var(--linea);
-  display:flex;gap:10px;align-items:center;flex-wrap:wrap;
-}
-.estado .txt{max-width:1400px;margin:0 auto;width:100%}
-.estado.ok{background:var(--papel-2);color:var(--tinta-3)}
-.estado.aviso{background:#F6EDD8;color:#6B4E05}
-.estado.error{background:#F6E2E0;color:#7A1F1A}
-.estado button{
-  background:none;border:none;cursor:pointer;text-decoration:underline;
-  text-underline-offset:3px;font-size:.78rem;font-weight:600;color:inherit;padding:2px;
-}
-
-.tablero{display:flex;max-width:1400px;margin:0 auto;min-height:60vh;align-items:flex-start}
-.indice{
-  width:390px;flex-shrink:0;border-right:1px solid var(--linea);
-  align-self:stretch;
-}
-ol.lista{list-style:none}
-ol.lista li{border-bottom:1px solid var(--papel-3)}
-ol.lista button{
-  width:100%;text-align:left;background:none;border:none;cursor:pointer;
-  padding:15px 26px 15px 22px;display:block;border-left:3px solid transparent;
-}
-ol.lista button:hover{background:var(--papel-2)}
-ol.lista button[aria-current="true"]{background:var(--acento-cl);border-left-color:var(--acento)}
-.li-alto{display:flex;gap:12px;align-items:baseline;margin-bottom:2px}
-.li-anio{font-family:var(--serif);font-size:1.05rem;color:var(--acento);font-weight:600;min-width:2.9em}
-.li-medio{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--tinta-3);font-weight:600}
-.li-titulo{font-family:var(--serif);font-size:1.28rem;line-height:1.25;color:var(--tinta);padding-left:calc(2.9em + 12px)}
-.li-marcas{padding-left:calc(2.9em + 12px);margin-top:5px;display:flex;gap:7px;flex-wrap:wrap}
-.pip{
-  font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;
-  padding:2px 7px;border-radius:2px;background:var(--papel-3);color:var(--tinta-2);
-}
-.pip.audio{background:var(--acento);color:#fff}
-.nada{padding:56px 26px;text-align:center;color:var(--tinta-3);font-family:var(--serif);font-size:1.15rem;font-style:italic}
-
-.ficha{flex:1;min-width:0;padding:38px 54px 90px;max-width:900px;scroll-margin-top:104px}
-.indice{scroll-margin-top:104px}
-.volver{display:none}
-.f-medio{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--tinta-3);font-weight:600;margin-bottom:10px}
-.f-titulo{font-family:var(--serif);font-size:clamp(2rem,4.4vw,3.1rem);font-weight:400;line-height:1.08;margin-bottom:8px}
-.f-anio{font-family:var(--serif);font-style:italic;font-size:1.45rem;color:var(--acento);margin-bottom:26px}
-.f-rol{
-  font-family:var(--serif);font-size:1.3rem;font-style:italic;color:var(--tinta-2);
-  border-left:2px solid var(--acento);padding-left:16px;margin-bottom:28px;
-}
-.bloque{margin-bottom:34px}
-.bloque h3{
-  font-size:.68rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--tinta-3);padding-bottom:8px;border-bottom:1px solid var(--linea);margin-bottom:14px;
-}
-.bloque p{font-family:var(--serif);font-size:1.16rem;line-height:1.66;color:var(--tinta-2)}
-
-/* ---- Visor / carrusel ---- */
-.visor{border:1px solid var(--linea);background:var(--papel-2);margin-bottom:34px}
-.visor-cab{
-  display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;
-  padding:11px 16px;border-bottom:1px solid var(--linea);background:var(--papel);
-}
-.visor-cab .rotulo{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--tinta-3);font-weight:600}
-.visor-cab .paso{display:flex;align-items:center;gap:6px}
-.visor-cab .paso button{
-  background:none;border:1px solid var(--linea);cursor:pointer;width:32px;height:32px;
-  border-radius:2px;color:var(--tinta-2);font-size:1rem;line-height:1;
-}
-.visor-cab .paso button:hover:not(:disabled){background:var(--papel-2);color:var(--tinta)}
-.visor-cab .paso button:disabled{opacity:.35;cursor:default}
-.visor-cab .paso span{font-family:var(--serif);font-size:.98rem;color:var(--tinta-3);min-width:4.2em;text-align:center}
-.marco{position:relative;width:100%;aspect-ratio:16/10;background:#14120F}
-.marco iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.marco img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#14120F}
-.enlace-ext{
-  padding:32px 24px;text-align:center;background:var(--papel-2);
-}
-.enlace-ext .dominio{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--tinta-3);margin-bottom:10px;font-weight:600}
-.enlace-ext a{
-  font-family:var(--serif);font-size:1.2rem;color:var(--acento);
-  text-decoration:underline;text-underline-offset:4px;word-break:break-word;
-}
-.visor-pie{padding:9px 16px;font-size:.74rem;color:var(--tinta-3);border-top:1px solid var(--linea);background:var(--papel)}
-.visor-pie a{color:var(--acento)}
-.puntos{display:flex;gap:6px;padding:10px 16px;flex-wrap:wrap;background:var(--papel);border-top:1px solid var(--linea)}
-.puntos button{
-  background:none;border:1px solid var(--linea);cursor:pointer;padding:4px 10px;border-radius:2px;
-  font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta-3);font-weight:600;
-}
-.puntos button[aria-current="true"]{background:var(--tinta);border-color:var(--tinta);color:var(--papel)}
-.sin-doc{
-  padding:36px 24px;text-align:center;color:var(--tinta-3);
-  font-family:var(--serif);font-style:italic;font-size:1.1rem;background:var(--papel-2);
-}
-
-/* ---- Comentario de audio ---- */
-.comentario{border:1px solid var(--linea);background:var(--papel-2);padding:20px 22px;margin-bottom:34px}
-.comentario h3{
-  font-size:.68rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--tinta-3);margin-bottom:14px;
-}
-.comentario audio{width:100%;max-width:460px;margin-bottom:12px}
-.comentario .vacio{font-family:var(--serif);font-style:italic;color:var(--tinta-3);font-size:1.08rem}
-.fila-grabar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:12px}
-.btn{
-  background:var(--tinta);color:var(--papel);border:1.5px solid var(--tinta);
-  padding:9px 18px;border-radius:2px;cursor:pointer;
-  font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
-  display:inline-flex;align-items:center;gap:8px;
-}
-.btn:hover:not(:disabled){background:transparent;color:var(--tinta)}
-.btn:disabled{opacity:.45;cursor:default}
-.btn.sec{background:transparent;color:var(--tinta-2);border-color:var(--linea)}
-.btn.sec:hover:not(:disabled){border-color:var(--tinta);color:var(--tinta);background:transparent}
-.btn.rojo{background:var(--acento);border-color:var(--acento);color:#fff}
-.btn.rojo:hover:not(:disabled){background:#5E2222;border-color:#5E2222;color:#fff}
-.btn .bolita{width:8px;height:8px;border-radius:50%;background:currentColor;flex-shrink:0}
-.btn.grabando .bolita{animation:latir 1.1s ease-in-out infinite}
-@keyframes latir{0%,100%{opacity:1}50%{opacity:.25}}
-.aviso-grab{font-size:.8rem;color:var(--tinta-3);margin-top:10px}
-.aviso-grab.mal{color:#7A1F1A}
-.aviso-grab.bien{color:#1F5C2E}
-.cronometro{font-family:var(--serif);font-size:1.15rem;color:var(--acento);font-variant-numeric:tabular-nums}
-
-/* ---- Pie ---- */
-footer{
-  border-top:1px solid var(--linea);padding:26px 32px;background:var(--papel-2);
-  display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;
-  font-size:.78rem;color:var(--tinta-3);
-}
-
-/* ---- Diálogo de clave ---- */
-dialog{
-  border:1px solid var(--linea);background:var(--papel);padding:28px;max-width:420px;width:92%;
-  color:var(--tinta);border-radius:2px;
-}
-dialog::backdrop{background:rgba(28,26,23,.55)}
-dialog h2{font-family:var(--serif);font-size:1.6rem;font-weight:400;margin-bottom:8px}
-dialog p{font-size:.9rem;color:var(--tinta-2);margin-bottom:16px}
-dialog input{
-  width:100%;padding:10px 12px;border:1.5px solid var(--linea);background:#fff;
-  font-family:var(--sans);font-size:1rem;margin-bottom:16px;border-radius:2px;color:var(--tinta);
-}
-dialog input:focus{border-color:var(--acento)}
-dialog .fila{display:flex;gap:10px;justify-content:flex-end}
-
-/* ==========================================================================
-   iPad y celular
-   ========================================================================== */
-@media (max-width:1180px){
-  .indice{width:330px}
-  .ficha{padding:32px 34px 80px}
-}
-@media (max-width:900px){
-  .tablero{display:block}
-  .indice{width:100%;border-right:none;border-bottom:1px solid var(--linea)}
-  .ficha{max-width:100%;padding:26px 22px 70px}
-  body.ver-ficha .indice{display:none}
-  body.ver-ficha .volver{
-    display:inline-flex;align-items:center;gap:8px;margin-bottom:22px;
-    background:none;border:1px solid var(--linea);color:var(--tinta-2);
-    padding:9px 15px;border-radius:2px;cursor:pointer;
-    font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --olive: #5D5C31;
+    --paper: #F3EFE4;
+    --maroon: #6E1F26;
+    --wine: #6E1F26;
+    --navy: #1C2B3A;
+    --ink: #201C16;
   }
-  body.ver-ficha .volver:hover{border-color:var(--tinta);color:var(--tinta)}
-  body:not(.ver-ficha) .ficha{display:none}
-  .barra{padding:14px 22px 10px}
-  .estado{padding:8px 22px}
-  .nav-sup{gap:18px;padding:16px 20px}
-  .marca{font-size:1.4rem;letter-spacing:.12em}
-  .nav-sup .grupo{display:none}
-  .marco{aspect-ratio:4/3}
-}
-@media (max-width:520px){
-  .li-titulo,.li-marcas{padding-left:0}
-  .li-alto{margin-bottom:4px}
-}
-@media print{
-  .barra,.estado,.indice,.nav-sup,.portada,footer,.visor,.comentario,.volver{display:none!important}
-  .ficha{max-width:100%;padding:0}
-}
+  body {
+    font-family: 'Jost', -apple-system, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    height: 100vh;
+    overflow: hidden;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 16px 48px 14px;
+    background: var(--navy);
+  }
+  header .brand {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+  }
+  header .brand .logo {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 15px;
+    color: #cfa15e;
+    border-bottom: 1px solid #cfa15e;
+    padding-bottom: 2px;
+  }
+  header .brand h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    letter-spacing: 0.2px;
+    color: var(--paper);
+    font-weight: 500;
+  }
+  header .brand p {
+    font-size: 12px;
+    color: #a3b0a0;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+  header .stats-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+  }
+  header .stats {
+    text-align: right;
+    font-size: 11px;
+    color: rgba(243,239,228,0.6);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  header .stats b {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: #cfa15e;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+  header .refresh-btn {
+    background: #cfa15e;
+    color: #1C2B3A;
+    border: none;
+    padding: 7px 14px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  header .refresh-btn:hover { opacity: 0.85; }
+  .layout {
+    display: flex;
+    height: calc(100vh - 100px);
+  }
+  .sidebar {
+    width: 320px;
+    flex-shrink: 0;
+    border-right: 1px solid rgba(28,43,58,0.18);
+    display: flex;
+    flex-direction: column;
+    background: #EFEADD;
+  }
+  .search-box {
+    padding: 20px 24px 14px;
+  }
+  .search-box input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(32,28,22,0.35);
+    color: var(--ink);
+    padding: 6px 0;
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+  }
+  .search-box input::placeholder { color: rgba(32,28,22,0.4); font-style: italic; }
+  .search-box input:focus { outline: none; border-bottom-color: var(--maroon); }
+  .filters {
+    padding: 6px 24px 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .filters button {
+    background: transparent;
+    border: none;
+    color: rgba(32,28,22,0.5);
+    padding: 3px 0;
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
+  }
+  .filters button.active {
+    color: var(--navy);
+    border-bottom-color: var(--navy);
+  }
+  .results-count {
+    padding: 12px 24px;
+    font-size: 10px;
+    color: rgba(32,28,22,0.5);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgba(28,43,58,0.18);
+    border-bottom: 1px solid rgba(28,43,58,0.18);
+  }
+  .results-count b { color: var(--wine); font-weight: 600; }
+  .list {
+    overflow-y: auto;
+    flex: 1;
+  }
+  .list::-webkit-scrollbar { width: 5px; }
+  .list::-webkit-scrollbar-thumb { background: rgba(28,43,58,0.25); }
+  .item {
+    padding: 16px 24px;
+    border-bottom: 1px solid rgba(28,43,58,0.1);
+    cursor: pointer;
+  }
+  .item:nth-child(even) { background: rgba(28,43,58,0.03); }
+  .item:hover { background: rgba(28,43,58,0.07); }
+  .item.selected {
+    background: rgba(110,31,38,0.08);
+    border-left: 2px solid var(--wine);
+    padding-left: 22px;
+  }
+  .item .meta {
+    font-size: 10px;
+    color: var(--olive);
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .item .title {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--navy);
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  .detail {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px 64px 44px;
+    max-width: 980px;
+    background: var(--paper);
+  }
+  .detail .tag {
+    display: inline-block;
+    color: var(--olive);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-right: 14px;
+  }
+  .detail .year {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--wine);
+    font-size: 15px;
+  }
+  .detail h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    margin: 8px 0 6px;
+    color: var(--navy);
+    font-weight: 500;
+    line-height: 1.15;
+  }
+  .detail .rol {
+    color: rgba(28,43,58,0.65);
+    font-size: 14px;
+    font-style: italic;
+    margin-bottom: 16px;
+    font-family: 'Playfair Display', serif;
+  }
+  .detail .imgwrap {
+    background: #E7E1D2;
+    margin-bottom: 20px;
+    min-height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid var(--wine);
+    border-bottom: 1px solid var(--wine);
+  }
+  .detail .imgwrap img { width: 100%; display: block; max-height: 560px; object-fit: contain; }
+  .detail .placeholder {
+    color: rgba(28,43,58,0.3);
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.5;
+    max-width: 400px;
+  }
+  .section {
+    margin-bottom: 24px;
+  }
+  .section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--navy);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .section p {
+    line-height: 1.6;
+    font-size: 14px;
+    color: rgba(28,43,58,0.8);
+  }
+  .links-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 16px;
+  }
+  .link {
+    display: inline-block;
+    color: var(--wine);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--wine);
+    padding-bottom: 2px;
+  }
+  .link:hover { opacity: 0.7; }
+  .audio-box {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(28,43,58,0.15);
+  }
+  .audio-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    color: var(--navy);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  .audio-controls {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+  }
+  .rec-btn {
+    background: var(--wine);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .rec-btn:hover { opacity: 0.9; }
+  .rec-btn.recording { background: #c41e2e; }
+  .rec-btn .dot {
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+  }
+  .rec-btn.recording .dot {
+    animation: pulse 1s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+  audio {
+    height: 28px;
+    max-width: 300px;
+  }
+  .del-btn {
+    background: transparent;
+    color: var(--wine);
+    border: 1px solid var(--wine);
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-size: 10px;
+    cursor: pointer;
+  }
+  .del-btn:hover { background: rgba(110,31,38,0.05); }
+  .empty {
+    padding: 40px;
+    text-align: center;
+    color: rgba(28,43,58,0.4);
+  }
 </style>
 </head>
 <body>
-<a class="salto" href="#buscar">Ir al buscador</a>
 
-<header class="nav-sup">
-  <nav class="grupo" aria-label="Secciones">
-    <a href="#archivo">Archivo</a>
-    <a href="#archivo">Cine</a>
-    <a href="#archivo">Teatro</a>
-  </nav>
-  <div class="marca">Soledad Silveyra</div>
-  <nav class="grupo" aria-label="Herramientas">
-    <a href="#archivo">Televisión</a>
-    <button type="button" class="enlace" id="btnModo">Modo edición</button>
-  </nav>
+<header>
+  <div class="brand">
+    <div class="logo">ARCHIVO</div>
+    <h1>Tatita</h1>
+    <p>Soledad Silveyra</p>
+  </div>
+  <div class="stats-row">
+    <div class="stats">
+      <b id="stat-total">0</b>
+      <span>Títulos</span>
+    </div>
+    <button class="refresh-btn" onclick="location.href=location.pathname+'?t='+Date.now()">Actualizar</button>
+  </div>
 </header>
 
-<div class="portada">
-  <img class="foto" id="fotoPortada" src="soledad.jpg" alt="Retrato de Soledad Silveyra"
-       onerror="this.remove();document.getElementById('sinFoto').hidden=false">
-  <div class="sin-foto" id="sinFoto" hidden>
-    Falta la foto de portada.<br>Subí un archivo llamado <b>soledad.jpg</b> junto a esta página.
-  </div>
-</div>
-
-<div class="bajada">
-  <p><span class="capital">S</span>oledad Silveyra construyó a lo largo de seis décadas una de las trayectorias
-     más extensas de la escena argentina. Del teleteatro de los años sesenta al cine de autor,
-     del teatro clásico a la conducción televisiva, su recorrido atraviesa la historia cultural del país.</p>
-  <p>Este archivo reúne su filmografía, sus obras de teatro y sus trabajos en televisión,
-     junto al material gráfico y documental asociado a cada título. Se actualiza de forma
-     permanente a medida que se incorpora nueva documentación.</p>
-</div>
-
-<main class="archivo" id="archivo">
-  <p class="estado ok" id="estado" role="status" aria-live="polite">
-    <span class="txt" id="estadoTxt">Cargando el archivo…</span>
-  </p>
-
-  <div class="barra">
-    <div class="barra-int">
-      <div class="campo">
-        <label for="buscar">Buscar en el archivo</label>
-        <div class="caja">
-          <input type="search" id="buscar" autocomplete="off" spellcheck="false"
-                 placeholder="Título, año, elenco, personaje…" aria-describedby="ayuda">
-          <button type="button" class="limpiar" id="limpiar" hidden>
-            <span aria-hidden="true">&times;</span><span class="sr">Limpiar la búsqueda</span>
-          </button>
-        </div>
-        <p id="ayuda" class="sr">No hace falta escribir tildes ni respetar mayúsculas ni puntuación.</p>
-      </div>
-      <div class="medios" id="medios" role="group" aria-label="Filtrar por medio"></div>
-      <p class="cuenta"><b id="cuenta">0</b> <span id="cuentaTxt">títulos</span></p>
+<div class="layout">
+  <div class="sidebar">
+    <div class="search-box">
+      <input type="text" id="q" placeholder="Buscar...">
     </div>
-  </div>
-
-  <div class="tablero">
-    <nav class="indice" aria-label="Índice de títulos">
-      <ol class="lista" id="lista"></ol>
-    </nav>
-    <article class="ficha" id="ficha" tabindex="-1" aria-live="polite">
-      <p class="nada">Elegí un título del índice para ver su ficha.</p>
-    </article>
-  </div>
-</main>
-
-<footer>
-  <span>Archivo Soledad Silveyra</span>
-  <span id="pie"></span>
-</footer>
-
-<dialog id="dlgClave" aria-labelledby="dlgTit">
-  <h2 id="dlgTit">Modo edición</h2>
-  <p>Ingresá la clave para poder grabar comentarios. La clave se verifica en el servidor.</p>
-  <form method="dialog">
-    <label class="sr" for="claveInp">Clave</label>
-    <input type="password" id="claveInp" autocomplete="current-password" placeholder="Clave">
-    <div class="fila">
-      <button type="submit" value="cancelar" class="btn sec">Cancelar</button>
-      <button type="submit" value="ok" class="btn">Entrar</button>
+    <div class="filters" id="filters"></div>
+    <div class="results-count">
+      <span>Resultados: <b id="count">0</b></span>
     </div>
-  </form>
-</dialog>
+    <div class="list" id="list"></div>
+  </div>
+  <div class="detail" id="detail"></div>
+</div>
 
 <script>
-"use strict";
-/* ==========================================================================
-   CONFIGURACIÓN — editar sólo este bloque
-   ========================================================================== */
-const CONFIG = {
-  SHEET_ID: "1OWRL6R7vfmsjCdZw8nE-bxhg3ROrPsohL-ED89GSzIA",
-  HOJA: "",                 // vacío = primera hoja
-  CSV_PUBLICADO: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQXxB-DtnCyO-vN0Pjd4hrtbDO6Xgzee0U1dQqQQuRLwetvKlfYCIiGT4kF1CApRAzDRa01hF9wXYd8/pub?output=csv",
-  APPS_SCRIPT: "",          // URL /exec del Apps Script que guarda los audios
-  COL_AUDIO: "Audio de Soledad",
-  // Columnas que NO son documentos (las primeras cinco, fijas)
-  COL_ANIO: "Año", COL_TITULO: "Título", COL_MEDIO: "Medio",
-  COL_ELENCO: "Elenco", COL_ROL: "Rol / Observación",
-  // Columnas a ignorar por completo (fórmulas rotas, auxiliares)
-  IGNORAR: ["URL PARA EL BUSCADOR"],
-  MAX_SEG: 300              // duración máxima de una grabación, en segundos
-};
+var DATA = [
+["1964","El amor tiene cara de mujer","Televisión","Bárbara Mujica; Delfy de Ortega; Angélica López Gamio; Mecha Ortiz","Betina","",""],
+["1965","Su comedia Favorita","Televisión","","Varios personajes","",""],
+["1966","Los chicos también pecan","Teatro","Darío Vittori","","",""],
+["1967","La cigarra está que arde","Cine","Luis Sandrini, Tita Merello, Fidel Pintos, Ángel Magaña, Soledad Silveyra y elenco. Dirección: Lucas Demare.","Gloria","https://drive.google.com/file/d/1bnjnGstk8DedRchP1-SLvNu_3R0HGIeQ/view?usp=drive_link",""],
+["1967","La venganza","Televisión","","Esther Santibáñez","",""],
+["1967","Martín Fierro","Televisión","","Juanita","",""],
+["1968","Psexoanálisis","Cine","Jorge Barreiro, Tita Merello, Federico Luppi, Enzo Viena, Soledad Silveyra y elenco. Dirección: Héctor Olivera y Fernando Ayala (Aries Cinematográfica Argentina).","","https://drive.google.com/file/d/1N8V4HLtseYERZropL5ZA4sekbELa5jGz/view?usp=drive_link",""],
+["1968","Un muchacho como yo","Cine","Palito Ortega, Evangelina Salazar, Rodolfo Onetto, Julio De Grazia, Soledad Silveyra y elenco. Dirección: Lucas Demare.","Celia Ramos","https://drive.google.com/file/d/1uXBuwZytnlNO03tNqao2uR6ZDr_zHnhl/view?usp=drive_link",""],
+["1968","El mundo del espectáculo","Televisión","Ciclo cultural y de teleteatros emitido por Canal 13, con emisiones documentadas desde julio de 1968. Participación de Soledad Silveyra en episodio dramático (personaje: Nélida).","Nélida","",""],
+["1969","Don Segundo Sombra","Cine","Adolfo Güemes, Ignacio Quirós, Héctor Alterio, Luis Medina Castro, Lautaro Murúa, Soledad Silveyra.","Aurora","https://drive.google.com/file/d/1vklVUBNRLeDPA-1K717jXU6QoJR-vOcr/view?usp=drive_link",""],
+["1969","El profesor hippie","Cine","Luis Sandrini, Soledad Silveyra, Hilda Bernard, Jorge Barreiro, Guillermo Bredeston, Nelly Beltrán.","Nélida Echeverría","https://drive.google.com/file/d/1wby4s6KcICZ6K-zblQKYtD8lq8Aimr4k/view?usp=drive_link",""],
+["1969","Quiero llenarme de ti","Cine","Sandro (Roberto Sánchez), Marcela López Rey, Soledad Silveyra, Marta González, Héctor Pellegrini.","Ana María","https://drive.google.com/file/d/1axhWE7uzzpyTRLpiw5ogmBXQ7_6HS6Mq/view?usp=drive_link",""],
+["1969","Los muchachos de antes no usaban gomina","Cine","Rodolfo Bebán, Susana Campos, Osvaldo Miranda, María Aurelia Bisutti, Nélida Lobato, Virginia Lago, Soledad Silveyra.","","https://drive.google.com/file/d/1R5-ekPu4RBEhijAlBO2GuriBjpRRQWOl/view?usp=drive_link",""],
+["1969","La novela de Corín Tellado","Televisión","Narciso Ibáñez Menta, Beatriz Taibo, Guillermo Bredeston, Hilda Bernard, Soledad Silveyra y otros elencos rotativos, en un ciclo de teleteatros románticos basado en relatos de Corín Tellado.","Varios personajes","",""],
+["1970","40 kilates","Teatro","Mirta Legrand y osvaldo miranda","","",""],
+["1970","Los mochileros","Cine","","Ana María","https://drive.google.com/file/d/1EasDsq0U9JX1r6WU0-Hmh8ILdIU4p9uD/view?usp=drive_link",""],
+["1970","Gitano","Cine","Sandro, Soledad Silveyra, Ricardo Bauleo, Juan José Camero, Nelly Meden y elenco. Dirección: Emilio Vieyra. Producción: Aries Cinematográfica Argentina.","Carmen","https://drive.google.com/file/d/1_Ub0ZqrSMOFhINEcmz4vBKGa8FHSHhrg/view?usp=drive_link",""],
+["1970","Alta comedia","Televisión","","","",""],
+["1970","La comedia de los martes","Televisión","Hilda Bernard, Luis Brandoni, Jorge Barreiro, Osvaldo Miranda, Beatriz Taibo, Soledad Silveyra y otros actores participaron en este ciclo de teleteatros semanales","","",""],
+["1970","Do...Re...Mi...Papá","Televisión","","","",""],
+["1970","Una vida para amarte","Televisión","","Eugenia Duran","",""],
+["1971","Así es Buenos Aires","Cine","Hugo Marcel, Soledad Silveyra, Ricardo Bauleo, Susana Giménez, Víctor Bó y elenco. Dirección: Emilio Vieyra.","","https://drive.google.com/file/d/1uQG051fveQ_wH6x0vi5oRaHumRx8dB5R/view?usp=drive_link",""],
+["1971","Los neuróticos","Cine","","","https://drive.google.com/file/d/1a_tBwJKkTtgiB1gxsGwJ3Zn4iPP2fhdr/view?usp=drive_link",""],
+["1971","Así en la villa como en el cielo","Televisión","","Muñeca","",""],
+["1971","La luna sobre el circo","Televisión","","Cassandra / Luna","",""],
+["1971","Juguemos al amor","Televisión","","María Cáceres","",""],
+["1972","La colimba no es la guerra","Cine","","","https://drive.google.com/file/d/1NajsjTROxoWJ2bzjbUPu6ce42LBvEzKp/view?usp=drive_link",""],
+["1972","Disputas en la cama","Cine","","","https://drive.google.com/file/d/1bPoapfj5-swbW9k1TjHt6DESxWwI8vA7/view?usp=drive_link",""],
+["1972","La Gata","Televisión","","Renata Santacruz “La gata”","",""],
+["1972","Rolando Rivas, taxista","Televisión","","Mónica Helguera Paz","",""],
+["1973","¡Quiero besarlo Señor!","Cine","","","https://drive.google.com/file/d/1UrfNvCNk3B6fzPSGCrCO3YA7tQMcX3xg/view?usp=drive_link",""],
+["1973","La malavida","Cine","","Juana","https://drive.google.com/file/d/1GtvPZVXlLagt3Mknxz0EyxJIwKauDIEg/view?usp=drive_link",""],
+["1973","Platea 7","Televisión","Alfredo Alcón, Norma Aleandro, Luis Brandoni, Marilina Ross, Soledad Silveyra y otras figuras del teatro argentino participaron en este ciclo de teleteatros televisivos.","Carola","",""],
+["1973","El hogar que yo robé","Televisión","","Genoveva Aguilar","",""],
+["1973","Pobre diabla","Televisión","","Marcela Morelli de Mejía Guzmán","",""],
+["1973","Los japoneses no esperan","Teatro","","","",""],
+["1974","Rolando Rivas, taxista","Cine","Soledad Silveyra, Claudio García Satur y Marcelo Marcote","Mónica Helguera Paz","https://drive.google.com/file/d/1HBTRbBqSrPFiOdUl7-oWXL6sM9ubpYTK/view?usp=drive_link",""],
+["1974","Mi hombre sin noche","Televisión","1","Aldana","","https://es.wikipedia.org/wiki/Mi_hombre_sin_noche"],
+["1974","Porcelandia","Televisión","","Sole","",""],
+["1974","Teatro como en el teatro","Televisión","","","",""],
+["1974","Sabor a miel","Teatro","1","","",""],
+["1975","Una mujer","Cine","","Amante","https://drive.google.com/file/d/1LXUYPgpNwxZ7qfiBHTYIT8qO6kBYvbp5/view?usp=drive_link",""],
+["1975","Bodas de cristal","Cine","","","https://drive.google.com/file/d/14-tKuQ9kUBeZo4AtPIDeAJLeGHHKZOUW/view?usp=drive_link",""],
+["1975","Sembraderos","Televisión","","Rita Gómez","",""],
+["1975","Tu rebelde ternura","Televisión","","Norah","",""],
+["1976","Sol tardío (Chile)","Televisión","","Soledad","",""],
+["1976","Vidas privadas","Teatro","","","",""],
+["1976","Las mariposas son libres","Teatro","China Zorrilla","","",""],
+["1977","El show de Eber y Nélida Lobato","Televisión","","Varios personajes","",""],
+["1977","Gigi","Teatro","China Zorrila","","",""],
+["1978","El tío Porcel","Televisión","","","",""],
+["1978","Capítulo II","Teatro","Miguel Ángel Solá y Oscar Martínez","","",""],
+["1979","Chau, amor mío","Televisión","Arnaldo André y Thelma Biral protagonizan esta telenovela escrita por Alberto Migré, con participación de Soledad Silveyra (Fe). Emitida por Canal 9.","Fe","",""],
+["1979","Al rojo vivo","Televisión","","Liliana Márquez Carmona de Peralta","",""],
+["1979","La señorita Julia","Teatro","Jorge Mayor","","",""],
+["1980","Los miedos","Cine","","","https://drive.google.com/file/d/1zRGPWWuzGjeTzrQe4B8il_O06qnEoPOQ/view?usp=drive_link",""],
+["1980","Hilda","Televisión","","Paulina Marchetti","",""],
+["1981","Los crápulas","Cine","","","https://drive.google.com/file/d/1fQJ1S6ltqIyo6eyln6gjb_9_voUQzDma/view?usp=drive_link",""],
+["1981","Laura mía","Televisión","","Laura","",""],
+["1981","Los exclusivos del 9","Televisión","","Solita","",""],
+["1981","El hombre elefante","Teatro","Miguel Angel Solá, dirije Emilio Alfaro, escenografo: Carlos Cytrynowski","","",""],
+["1982","Últimos días de la víctima","Cine","Dirección de Adolfo Aristarain","Cecilia Ravenna","https://drive.google.com/file/d/1bwPsO8iGR5yQg3z8QN0aMHD63cWHxg1z/view?usp=drive_link",""],
+["1982","La casa de las siete tumbas","Cine","","Clara","https://drive.google.com/file/d/1VVQg8_Urxr-4XmY6NVeIFMGOPRs4-_JU/view?usp=drive_link",""],
+["1982","La Cenicienta","Televisión","","Cenicienta","",""],
+["1982","Alfonsina","Televisión","Dirección: María Herminia Avellaneda",""," ",""],
+["1982","Noche estelar","Televisión","","Sofía","",""],
+["1982","Como en el teatro","Televisión","","Varios personajes","",""],
+["1982","La mala sangre","Teatro","Griselda Gambaro, con Lautaro Murúa","","",""],
+["1982","intimas amigas","Teatro","dirección: Sergio Renan, con Camila Perissé, conmigo, Oscar Martinez, Cacho Espindola, Julio Lopez...","Mar del Plata"," ",""],
+["1983","Lista Negra","Televisión","","Leonor","",""],
+["1983","J. J. Jueza de gloria","Televisión","","Paula Garmendia","",""],
+["1983","Mundos opuestos","Televisión","","Cristina Palavecino","",""],
+["1983","No toca botón","Televisión","","Varios personajes","",""],
+["1983","Pinocho","Teatro","","","",""],
+["1984","La Rosales","Cine","","","https://drive.google.com/file/d/1r_n1XAwBueOncaI-OYxTEEQ4ZFbFS3Pt/view?usp=drive_link",""],
+["1984","Los exclusivos del 11","Televisión","","","",""],
+["1984","Situación límite","Televisión","","","",""],
+["1984","El sol naciente","Teatro","Inda Ledesma, Ulises Dumont","","",""],
+["1985","Hay unos tipos abajo","Cine","","Eva","https://drive.google.com/file/d/1VtdopaVTqdZYaxwylcRT8QnKGXvPKzhH/view?usp=drive_link",""],
+["1985","Flores robadas en los jardines de Quilmes","Cine","Polémica con las madres","Carmen","https://drive.google.com/file/d/1GHX9TL92foNEuaZIlnn-PmEpt6UwDzLK/view?usp=drive_link",""],
+["1986","Pinocho","Cine","","Pinocho","https://drive.google.com/file/d/1m6I5lKRRqXYMHuSmswMjC6EemTiDFrjP/view?usp=drive_link",""],
+["1986","Sostenido en La menor","Cine","","Susana","https://drive.google.com/file/d/1P77LzCKokZUN3ODXj-r33zXiDAhLaSEh/view?usp=drive_link",""],
+["1985","Entre el cielo y la tierra","Televisión","Oscar Martínez","Julia Chávez","",""],
+["1986","Trío","Teatro","Soledad Silveyra, Perla Santalla y Virginia Lago","","",""],
+["1986","¿Quién es Iván Aguirre?","Televisión","","Clara Ansaldi","",""],
+["1987","Plaza suite","Teatro","","","",""],
+["1987","La clínica del Dr. Cureta","Cine","","","https://drive.google.com/file/d/145AceCQF6fzBAHZQ0-ZG7of1WNpqk8Mf/view?usp=drive_link",""],
+["1987","Los dueños del silencio","Cine","","Mujer del capitán","https://drive.google.com/file/d/1TIsDM0CgT99-VaAdXHZB05r0wG5-8FaU/view?usp=drive_link",""],
+["1987","Ficciones","Televisión","","Varios personajes","",""],
+["1987","Cuatro Princesas","Televisión","","Paola Santander de Guevara","",""],
+["1987","Después del atardecer","Televisión","","Rafaela Sandoval","",""],
+["1988","Los salvajes deseos de mi marido","Teatro ","Arnaldo Andre y Franchela","Carlos paz","1987/1988",""],
+["1988","Hay que deshacer la casa","Teatro","Charo López y Soledad Silveyra","","",""],
+["1988","Hombres de ley","Televisión","","Carolina Álvarez","",""],
+["1988","Contracara","Televisión","","Sonia Trejo","",""],
+["1988","Los porteños","Televisión","","María Inés de Santos","",""],
+["1989","Madre Coraje","Teatro","","","",""],
+["1989","El mago de Oz","Teatro","","","",""],
+["1989","Como ellos no hay más","Televisión","","Ana","",""],
+["1989","Por amor al arte","Televisión","","","",""],
+["1989","La Bonita Página","Televisión","","Andrea Ortega","",""],
+["1989","La Bonita Página","Televisión","","Silvina Laura","",""],
+["1990","Extraña pareja","Teatro","","","",""],
+["1990","Silvya","Teatro","Carlos Perciavalle","Silvya","",""],
+["1990","Atreverse","Televisión","","Varios personajes","",""],
+["1991","Dios los cría","Cine","","","https://drive.google.com/file/d/1hbBnn9uez-hPfNEsBaSDqlatcHI5NOAO/view?usp=drive_link",""],
+["1991","Ficciones","Televisión","","","",""],
+["1992","Alicia en el país de las maravillas","Teatro","","","",""],
+["1992","Siempre es difícil volver a casa","Cine","","Julia","https://drive.google.com/file/d/13wVVN9PINYs43FSRSDI8DOhRlBTaH5lO/view?usp=drive_link",""],
+["1992","Algunas mujeres","Cortometraje","","","",""],
+["1992","Luces y sombras","Televisión","","","",""],
+["1992","Desde adentro","Televisión","","Victoria Ramos","",""],
+["1993","Perdidos en Yonkers","Teatro","","","",""],
+["1993","Hansel y Gretel","Teatro","","","",""],
+["1993","Doble juego (Chile)","Televisión","","Josefa María","",""],
+["1994","El Príncipe Feliz","Teatro","","","",""],
+["1994","Tardes de sol","Televisión","","Sol","",""],
+["1994","Mirada de Mujer","Televisión","","Isabel Domínguez de Santiesteban","",""],
+["1995","La hermana mayor","Televisión","","Astrid Sosa Ferreyra","",""],
+["1995","La Pulga en la oreja","Teatro","Carlos Calvo, Giani Lunadei Dirección: China Zorrilla","","","https://www.teatrocervantes.gob.ar/obra/la-pulga-en-la-oreja/"],
+["1996","Despabílate amor","Cine","","Ana","https://drive.google.com/file/d/1AKrtZc5jooFg0-r_KAo6ufOGFpxLuHMP/view?usp=drive_link",""],
+["1996","los especiales de Doria","Televisión","","El jorobadito y otros","",""],
+["1997","Las visiones de Simone Machard","Teatro","","","",""],
+["1997","Perla","Teatro","","","",""],
+["1997","Sin reserva","Cine","","Superiora","",""],
+["1997","Entre la sombra y el alma","Cine","","","",""],
+["1997","Socios y más","Televisión","","Margarita","",""],
+["1998","La nocturna","Televisión","Soledad Silveyra, Juan Vitali, Víctor Hugo Vieyra, Silvia Kutika, Gloria Carrá y unos jovencísimos Nicolás Cabré, Joaquín Furriel y Sebastián Estevanez","Fenanda","",""],
+["1998","La noche del coyote","Cine","","Sofía","https://drive.google.com/file/d/1212khoIT6TJsRxkfSlXsDPqTlftKNw6f/view?usp=drive_link",""],
+["1998","Utilísima","Programa","","","",""],
+["1999","Eva y Victoria","Teatro","","","",""],
+["1999","Campeones de la vida","Televisión","","Clara “Clarita” Ulloa","",""],
+["1999","La Argentina de Tato","Programa","","Sole Bonilla de León","",""],
+["2001","El prisionero de la Segunda Avenida","Teatro","Soledad Silveyra, Carlos Andrés Calvo, Alicia Aller, Adela Gleijer, Carlos Roffé y Pochi Ducasse. Dirección: Norma Aleandro.","Edna","",""],
+["2001","Gran Hermano 1","Programa","","Conductora","",""],
+["2001","Gran Hermano 2","Programa","","Conductora","",""],
+["2002","El cuarto azul","Teatro","","","",""],
+["2002","Made in Lanús","Teatro","","","",""],
+["2002","Gran Hermano 3","Programa","","Conductora","",""],
+["2003","Costumbres argentinas","Televisión","","Julia Pagliaro","",""],
+["2004","El deseo","Televisión","Natalia Oreiro","Mercedes “Mecha” de Bernal","",""],
+["2004","entre vivir y soñar","Cine","Carmen Maura, el actor francés Thierry Lhermitte y Marta Etura","","",""],
+["2005","Amor en custodia","Televisión","","Paz Achaval-Urien Bustamante","",""],
+["2006","Hasta aquí llegó mi amor","Teatro","","","",""],
+["2006","Amor en custodia (México)","Televisión","","Magdalena Millán","",""],
+["2006","La ley del amor","Televisión","Raúl Taibo, Sebastián Estevanez y Sabrina Garciarena","Renata Guerrico de Conforte","",""],
+["2007","Horai, la visión de lo intangible","Teatro","","","",""],
+["2008","Las hermanas L","Cine","Leticia Brédice, Sofía Gala, Soledad Silveyra, Florencia Peña, Julieta Zylberberg, Moria Casán, Agustina Kämpfer, Roly Serrano y Martín Slipak integran el elenco coral de esta comedia independiente argentina dirigida por Ezequiel Bórquez, Santiago Svirsky, Alejandro Montiel y Diego Schipani","Mabel","https://drive.google.com/file/d/1v5NdPRaNF0kUywXf5Bsy1Z1vN-P069YC/view?usp=drive_link",""],
+["2008","Vidas robadas","Televisión","Soledad Silveyra y Facundo Arana protagonizan Vidas robadas (TV, 2008), creada por Marcela Citterio y emitida por Telefe, con Silveyra en el papel de Rosario Soler de Miguez, en una telenovela centrada en la trata de personas y de fuerte impacto social.","Rosario Soler de Miguez","",""],
+["2008","Un tiempo después","Programa","","","",""],
+["2010","Secretos de amor","Televisión","","Diana Demare","",""],
+["2011","Espejos circulares","Teatro","","","",""],
+["2011","Industria argentina","Cine","","Síndico","https://drive.google.com/file/d/1mKYNFJG14pWKvBzhk4Qt6sOvv298w9Ip/view?usp=drive_link",""],
+["2011","Mi primera boda","Cine","","Marta","https://drive.google.com/file/d/1Q6BMcXFziXkoTIZL-sFcnvdIB3zcbLrF/view?usp=drive_link",""],
+["2011","Volver al ruedo","Televisión","","Elena","",""],
+["2012","Hembras, un encuentro de mujeres notables","Teatro","","","",""],
+["2012","Humores que matan","Teatro","","","",""],
+["2012","Condicionados","Televisión","","María Laura “Lorna” Cocker","",""],
+["2012","Amores de historia","Televisión","","Marta","",""],
+["2013","Nada del amor me produce envidia","Teatro","","","",""],
+["2013","Mis amigos de siempre","Televisión","","Inés de Ruiz","",""],
+["2014","Bailando por un sueño","Programa","","Jurado","",""],
+["2015","Una noche de amor","Cine","","Mamá de Leonel","https://drive.google.com/file/d/1D913WFZQVwY889fv3ZrQqOYF9ThSZA5F/view?usp=drive_link",""],
+["2016","Marcianos en la casa","Teatro","","","",""],
+["2016","Al borde","Televisión","","Nelly","",""],
+["2017","Heidi, bienvenida a casa","Televisión","","Astrid Rottenmeier","",""],
+["2017","La novela de la una","Programa","","","",""],
+["2018","Lo que nos une","Teatro","","","",""],
+["2019","Cartas de amor","Teatro","","","",""],
+["2019","Los adoptantes","Cine","","Miriam","https://drive.google.com/file/d/1mM68frr4KOTu42D4pcjYXYfs3w_UTAIh/view?usp=drive_link",""],
+["2019","El retiro","Cine","","Aída","https://drive.google.com/file/d/14zKMQMMArBAPmSLqdQ-wz0Ibp_fqv1ji/view?usp=drive_link",""],
+["2019","Monzón","Televisión","","Elba Muñiz","",""],
+["2019","El host","Televisión","","Alicia","",""],
+["2020","La panelista","Cine","","Claudia","https://drive.google.com/file/d/1PQ_iYA__w0swuSCOpme9JLjLnLl_DLf2/view?usp=drive_link",""],
+["2020","Los internacionales","Televisión","","Justina","",""],
+["2020","Karakol","Cine","Dirección: Saula Benavente, con Agustina Muñoz, Dominique Sanda y Soledad Silveyra","","",""],
+["2020","Mujeres","Programa","","","",""],
+["2021","Locas de atar","Teatro","Verónica Ginás","","",""],
+["2022","Hoy se arregla el mundo","Cine","","Patricia","",""],
+["2024","La fuerza del cariño","Teatro","Soledad Silveyra y Osvaldo Laport","","",""],
+["2025","¿Quién es quién?","Teatro","Luis Brandoni, Soledad Silveyra","","",""]
+];
 
-const CACHE_KEY = "archivo_soledad_v1";
+var mediums = ["Todos"];
+DATA.forEach(function(r){ if (mediums.indexOf(r[2]) === -1) mediums.push(r[2]); });
 
-/* ==========================================================================
-   Utilidades
-   ========================================================================== */
-const $ = s => document.querySelector(s);
-const esc = s => (s==null?"":String(s))
-  .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+var activeFilter = "Todos";
+var listEl = document.getElementById('list');
+var detailEl = document.getElementById('detail');
+var qEl = document.getElementById('q');
+var countEl = document.getElementById('count');
+var filtersEl = document.getElementById('filters');
 
-/* Normalización amplia: sin tildes, sin mayúsculas, sin puntuación. */
-function norm(s){
-  return (s==null?"":String(s))
-    .toLowerCase()
-    .normalize("NFD").replace(/[\u0300-\u036f]/g,"")     // tildes y diéresis
-    .replace(/[\u2018\u2019\u201c\u201d]/g,"")          // comillas tipográficas
-    .replace(/[^a-z0-9ñ]+/g," ")                        // puntos, comas, guiones, paréntesis…
-    .replace(/\s+/g," ").trim();
-}
-const vacio = v => {
-  const t = (v==null?"":String(v)).trim();
-  return !t || /^#(REF|N\/A|VALUE|NAME|DIV\/0|NULL)!?$/i.test(t) || t==="#REF!";
-};
+document.getElementById('stat-total').textContent = DATA.length;
 
-function parseCSV(texto){
-  const filas=[]; let campo="",fila=[],dentro=false;
-  texto = texto.replace(/^﻿/,"");
-  for(let i=0;i<texto.length;i++){
-    const c=texto[i];
-    if(dentro){
-      if(c==='"'){ if(texto[i+1]==='"'){campo+='"';i++;} else dentro=false; }
-      else campo+=c;
-    } else if(c==='"') dentro=true;
-    else if(c===","){ fila.push(campo); campo=""; }
-    else if(c==="\n"){ fila.push(campo); filas.push(fila); fila=[]; campo=""; }
-    else if(c!=="\r") campo+=c;
-  }
-  if(campo!==""||fila.length){ fila.push(campo); filas.push(fila); }
-  if(!filas.length) return {cab:[],filas:[]};
-  const cab=filas.shift().map(h=>h.trim());
-  const datos=filas.map((f,i)=>{
-    const o={__fila:i+2};                 // fila real en el Sheet (1 = encabezado)
-    cab.forEach((h,j)=>o[h]=(f[j]||"").trim());
-    return o;
-  }).filter(o=>Object.keys(o).some(k=>k!=="__fila" && !vacio(o[k])));
-  return {cab,filas:datos};
-}
-
-/* ==========================================================================
-   Interpretación de las filas
-   ========================================================================== */
-let CABECERAS=[], REGISTROS=[], MEDIOS=[];
-
-const RE_URL=/https?:\/\/[^\s,|;"'<>]+/gi;
-function urlsDe(txt){ return (String(txt).match(RE_URL)||[]).map(u=>u.replace(/[).,;]+$/,"")); }
-function idDrive(u){
-  const m=u.match(/\/d\/([A-Za-z0-9_-]{20,})/)||u.match(/[?&]id=([A-Za-z0-9_-]{20,})/);
-  return m?m[1]:null;
-}
-function dominio(u){ try{ return new URL(u).hostname.replace(/^www\./,""); }catch(e){ return "enlace"; } }
-function tipoPorExt(u){
-  const p=u.split("?")[0].toLowerCase();
-  if(/\.(jpe?g|png|gif|webp|avif|bmp)$/.test(p)) return "imagen";
-  if(/\.(mp4|m4v|webm|mov|ogv)$/.test(p))        return "video";
-  if(/\.(mp3|wav|m4a|ogg|oga|aac)$/.test(p))     return "audio";
-  if(/\.pdf$/.test(p))                            return "pdf";
-  return null;
-}
-function docDe(url,rotulo){
-  const id=idDrive(url);
-  return { url, rotulo, drive:id, tipo:tipoPorExt(url)||(id?"drive":"externo"), dominio:dominio(url) };
-}
-
-function preparar(cab,filas){
-  const fijas=[CONFIG.COL_ANIO,CONFIG.COL_TITULO,CONFIG.COL_MEDIO,CONFIG.COL_ELENCO,CONFIG.COL_ROL];
-  const extras=cab.filter(h=>h && !fijas.includes(h) && !CONFIG.IGNORAR.includes(h));
-  const usadas=new Set();
-
-  return filas.map((r,i)=>{
-    const titulo=(r[CONFIG.COL_TITULO]||"").trim();
-    if(!titulo) return null;
-    const anio=(r[CONFIG.COL_ANIO]||"").trim();
-    const medio=(r[CONFIG.COL_MEDIO]||"").trim()||"Otros";
-
-    // Documentos: todas las URLs de las columnas extra, más la columna auxiliar
-    const docs=[]; const secciones=[]; const pendientes=[];
-    const agregar=(u,rot)=>{
-      if(docs.some(d=>d.url===u)) return;
-      docs.push(docDe(u,rot));
-    };
-    extras.forEach(h=>{
-      const v=r[h]; if(vacio(v)) return;
-      if(h===CONFIG.COL_AUDIO) return;                 // el audio se trata aparte
-      const us=urlsDe(v);
-      if(us.length) us.forEach(u=>agregar(u,h));
-      else if(/\.(png|jpe?g|gif|webp|pdf|mp4|m4v|wav|mp3)$/i.test(v.trim())) pendientes.push(v.trim());
-      else if(v.trim().length>2) secciones.push({rotulo:h,texto:v.trim()});
-    });
-    // La columna auxiliar suele traer resuelto el link de la gráfica
-    CONFIG.IGNORAR.forEach(h=>{
-      if(!(h in r)||vacio(r[h])) return;
-      urlsDe(r[h]).forEach(u=>agregar(u,"Gráfica relacionada"));
-    });
-
-    const audioURL=(!vacio(r[CONFIG.COL_AUDIO]) ? (urlsDe(r[CONFIG.COL_AUDIO])[0]||null) : null);
-
-    let clave=norm(anio+"-"+titulo).replace(/ /g,"-")||("t"+i);
-    let k=clave,n=2; while(usadas.has(k)){k=clave+"-"+n;n++;} usadas.add(k);
-
-    const elenco=vacio(r[CONFIG.COL_ELENCO])?"":r[CONFIG.COL_ELENCO].trim();
-    const rol=vacio(r[CONFIG.COL_ROL])?"":r[CONFIG.COL_ROL].trim();
-
-    return {
-      clave:k, fila:r.__fila, anio, titulo, medio, elenco, rol,
-      docs, secciones, pendientes, audioURL,
-      indice: norm([anio,titulo,medio,elenco,rol,
-                    ...secciones.map(s=>s.texto)].join(" "))
-    };
-  }).filter(Boolean);
-}
-
-/* ==========================================================================
-   Carga de datos: tres métodos + copia guardada en el navegador
-   ========================================================================== */
-const antiCache = u => u+(u.includes("?")?"&":"?")+"_cb="+Date.now();
-const conCorte = (p,ms,q) => Promise.race([p,
-  new Promise((_,rj)=>setTimeout(()=>rj(new Error(q+": tardó demasiado")),ms))]);
-
-async function porTexto(url){
-  const resp=await conCorte(fetch(url,{cache:"no-store"}),15000,"la consulta");
-  if(!resp.ok) throw new Error("HTTP "+resp.status);
-  const texto=await conCorte(resp.text(),15000,"la lectura");
-  if(/<!DOCTYPE|<html/i.test(texto.slice(0,400))) throw new Error("respondió una página web, no datos");
-  const r=parseCSV(texto);
-  if(!r.filas.length) throw new Error("no devolvió filas");
-  return r;
-}
-function deGviz(resp){
-  const t=resp&&resp.table;
-  if(!t||!t.cols) throw new Error("formato inesperado");
-  const cab=t.cols.map((c,i)=>((c.label||c.id||("col"+i))+"").trim());
-  const filas=(t.rows||[]).map((r,i)=>{
-    const o={__fila:i+2};
-    cab.forEach((h,j)=>{
-      const cel=r.c&&r.c[j];
-      o[h]=cel?String(cel.f!=null?cel.f:(cel.v!=null?cel.v:"")).trim():"";
-    });
-    return o;
-  }).filter(o=>Object.keys(o).some(k=>k!=="__fila"&&!vacio(o[k])));
-  if(!filas.length) throw new Error("no devolvió filas");
-  return {cab,filas};
-}
-function porJSONP(){
-  return new Promise((ok,mal)=>{
-    const fn="__sol"+Math.floor(performance.now()*1000);
-    const s=document.createElement("script"); let listo=false;
-    const limpiar=()=>{try{delete window[fn];}catch(_){window[fn]=undefined;} s.remove(); clearTimeout(rel);};
-    const rel=setTimeout(()=>{if(!listo){limpiar();mal(new Error("tardó demasiado"));}},15000);
-    window[fn]=resp=>{listo=true;limpiar();try{ok(deGviz(resp));}catch(e){mal(e);}};
-    s.onerror=()=>{if(!listo){limpiar();mal(new Error("no respondió"));}};
-    s.src=antiCache(`https://docs.google.com/spreadsheets/d/${CONFIG.SHEET_ID}/gviz/tq`
-      +`?tqx=out:json;responseHandler:${fn}&headers=1`
-      +(CONFIG.HOJA?`&sheet=${encodeURIComponent(CONFIG.HOJA)}`:""));
-    document.head.appendChild(s);
-  });
-}
-function metodos(){
-  const l=[];
-  if(CONFIG.CSV_PUBLICADO) l.push({n:"CSV publicado",f:()=>porTexto(antiCache(CONFIG.CSV_PUBLICADO))});
-  l.push({n:"CSV directo",f:()=>porTexto(antiCache(
-    `https://docs.google.com/spreadsheets/d/${CONFIG.SHEET_ID}/gviz/tq?tqx=out:csv`
-    +(CONFIG.HOJA?`&sheet=${encodeURIComponent(CONFIG.HOJA)}`:"")))});
-  l.push({n:"lectura compatible",f:porJSONP});
-  return l;
-}
-function reloj(){
-  return new Date().toLocaleTimeString("es-AR",{hour:"2-digit",minute:"2-digit"});
-}
-function estado(clase,html){
-  $("#estado").className="estado "+clase;
-  $("#estadoTxt").innerHTML=html;
-}
-
-async function cargar(manual){
-  estado("aviso","Consultando la planilla…");
-  const fallos=[];
-  for(const m of metodos()){
-    try{
-      const r=await m.f();
-      CABECERAS=r.cab; REGISTROS=preparar(r.cab,r.filas);
-      try{ localStorage.setItem(CACHE_KEY,JSON.stringify({cab:r.cab,filas:r.filas,cuando:Date.now()})); }catch(_){}
-      estado("ok",`Actualizado ${reloj()} · <button type="button" id="btnRefrescar">Actualizar</button>`);
-      $("#pie").textContent="Última actualización: "+reloj();
-      if(fallos.length) console.info("[Archivo] método: "+m.n+" · intentos previos: "+fallos.join(" | "));
-      return terminar();
-    }catch(e){
-      let msg=e.message||String(e);
-      if(/failed to fetch|networkerror|load failed/i.test(msg)) msg="el navegador bloqueó la lectura entre dominios";
-      fallos.push(m.n+" → "+msg);
-    }
-  }
-  // Copia guardada la última vez que sí se pudo leer
-  try{
-    const g=JSON.parse(localStorage.getItem(CACHE_KEY)||"null");
-    if(g&&g.filas&&g.filas.length){
-      CABECERAS=g.cab; REGISTROS=preparar(g.cab,g.filas);
-      const f=new Date(g.cuando).toLocaleString("es-AR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"});
-      estado("aviso",`No se pudo leer la planilla. Se muestra la última copia guardada en este navegador (${f}). `
-        +`<button type="button" id="btnRefrescar">Reintentar</button>`);
-      $("#pie").textContent="Copia guardada del "+f;
-      console.warn("[Archivo] fallaron todos los métodos:\n"+fallos.join("\n"));
-      return terminar();
-    }
-  }catch(_){}
-  REGISTROS=[];
-  estado("error","No se pudo leer la planilla y no hay ninguna copia guardada en este navegador. "
-    +"Detalle: "+esc(fallos.join(" | "))+" <button type=\"button\" id=\"btnRefrescar\">Reintentar</button>");
-  terminar();
-}
-function terminar(){
-  armarMedios(); aplicar(); abrirDeURL();
-  const b=$("#btnRefrescar"); if(b) b.onclick=()=>cargar(true);
-}
-
-/* ==========================================================================
-   Índice, filtros y búsqueda
-   ========================================================================== */
-let medioActivo=null, claveActiva=null;
-
-function armarMedios(){
-  MEDIOS=[...new Set(REGISTROS.map(r=>r.medio))].sort((a,b)=>a.localeCompare(b,"es"));
-  const c=$("#medios"); c.innerHTML="";
-  const mk=(txt,val)=>{
-    const b=document.createElement("button");
-    b.type="button"; b.textContent=txt;
-    b.setAttribute("aria-pressed", medioActivo===val?"true":"false");
-    b.onclick=()=>{ medioActivo=(medioActivo===val?null:val); armarMedios(); aplicar(); };
-    c.appendChild(b);
+mediums.forEach(function(m){
+  var btn = document.createElement('button');
+  btn.textContent = m;
+  if (m === activeFilter) btn.className = 'active';
+  btn.onclick = function(){
+    activeFilter = m;
+    Array.prototype.forEach.call(filtersEl.children, function(b){ b.className = (b.textContent === m) ? 'active' : ''; });
+    render(qEl.value);
   };
-  mk("Todos",null); MEDIOS.forEach(m=>mk(m,m));
-}
+  filtersEl.appendChild(btn);
+});
 
-function aplicar(){
-  const q=norm($("#buscar").value);
-  const terminos=q?q.split(" "):[];
-  const res=REGISTROS.filter(r=>{
-    if(medioActivo && r.medio!==medioActivo) return false;
-    return terminos.every(t=>r.indice.includes(t));
+function render(filter){
+  var f = (filter || "").toLowerCase();
+  var rows = DATA.filter(function(r){
+    var matchesText = !f || r.join(" ").toLowerCase().indexOf(f) !== -1;
+    var matchesFilter = activeFilter === "Todos" || r[2] === activeFilter;
+    return matchesText && matchesFilter;
   });
-  $("#cuenta").textContent=res.length;
-  $("#cuentaTxt").textContent=res.length===1?"título":"títulos";
-  $("#limpiar").hidden=!$("#buscar").value;
-
-  const ol=$("#lista"); ol.innerHTML="";
-  if(!res.length){
-    ol.innerHTML='<li class="nada">No hay títulos que coincidan con esa búsqueda.</li>';
-    return;
-  }
-  const frag=document.createDocumentFragment();
-  res.forEach(r=>{
-    const li=document.createElement("li");
-    const b=document.createElement("button");
-    b.type="button"; b.dataset.clave=r.clave;
-    b.setAttribute("aria-current", r.clave===claveActiva?"true":"false");
-    const marcas=[];
-    if(r.audioURL) marcas.push('<span class="pip audio">Comentario</span>');
-    if(r.docs.length) marcas.push(`<span class="pip">${r.docs.length} doc${r.docs.length>1?"s":""}</span>`);
-    b.innerHTML=
-      `<span class="li-alto"><span class="li-anio">${esc(r.anio||"—")}</span>`+
-      `<span class="li-medio">${esc(r.medio)}</span></span>`+
-      `<span class="li-titulo">${esc(r.titulo)}</span>`+
-      (marcas.length?`<span class="li-marcas">${marcas.join("")}</span>`:"");
-    b.onclick=()=>mostrar(r.clave,true);
-    li.appendChild(b); frag.appendChild(li);
+  countEl.textContent = rows.length;
+  listEl.innerHTML = "";
+  rows.forEach(function(r){
+    var idx = DATA.indexOf(r);
+    var item = document.createElement('div');
+    item.className = 'item';
+    item.dataset.idx = idx;
+    var hasAudio = localStorage.getItem('tatita_audio_' + idx) ? ' <span style="color:var(--wine); font-size:10px;">●</span>' : '';
+    item.innerHTML = '<div class="meta">' + r[0] + ' · ' + r[2] + '</div><div class="title">' + r[1] + hasAudio + '</div>';
+    item.onclick = function(){ selectRow(idx); };
+    listEl.appendChild(item);
   });
-  ol.appendChild(frag);
+  if (rows.length) selectRow(DATA.indexOf(rows[0]));
+  else detailEl.innerHTML = '<div class="empty">Sin resultados.</div>';
 }
 
-/* ==========================================================================
-   Ficha y visor
-   ========================================================================== */
-let docActivo=0;
+function selectRow(idx){
+  Array.prototype.forEach.call(listEl.children, function(el){
+    el.className = (parseInt(el.dataset.idx) === idx) ? 'item selected' : 'item';
+  });
+  var r = DATA[idx];
+  var year = r[0], title = r[1], medio = r[2], rol = r[3], elenco = r[4], img = r[5], link = r[6];
 
-function marcoDoc(d,titulo){
-  const t=esc(titulo);
-  if(d.drive && (d.tipo==="drive"||d.tipo==="pdf"||d.tipo==="video"))
-    return `<div class="marco"><iframe src="https://drive.google.com/file/d/${d.drive}/preview"
-              allow="autoplay; fullscreen" allowfullscreen title="Documento de ${t}"></iframe></div>`;
-  if(d.drive && d.tipo==="imagen")
-    return `<div class="marco"><img src="https://drive.google.com/thumbnail?id=${d.drive}&sz=w1600" alt="${t}"></div>`;
-  if(d.tipo==="imagen")
-    return `<div class="marco"><img src="${esc(d.url)}" alt="${t}"></div>`;
-  if(d.tipo==="video")
-    return `<div class="marco"><video controls preload="metadata" style="position:absolute;inset:0;width:100%;height:100%"
-              src="${esc(d.url)}" title="Video de ${t}"></video></div>`;
-  if(d.tipo==="audio")
-    return `<div style="padding:26px 20px;background:var(--papel-2)">
-              <audio controls preload="metadata" style="width:100%" src="${esc(d.url)}"></audio></div>`;
-  return `<div class="enlace-ext"><p class="dominio">${esc(d.dominio)}</p>
-            <a href="${esc(d.url)}" target="_blank" rel="noopener">Abrir el documento &nearr;</a></div>`;
-}
-
-function pintarVisor(r){
-  const z=$("#zonaVisor"); if(!z) return;
-  const d=r.docs[docActivo];
-  z.innerHTML=d?marcoDoc(d,r.titulo):"";
-  const rot=$("#visorRotulo"); if(rot&&d) rot.textContent=d.rotulo;
-  const pos=$("#visorPos"); if(pos) pos.textContent=(docActivo+1)+" de "+r.docs.length;
-  const ant=$("#visorAnt"), sig=$("#visorSig");
-  if(ant) ant.disabled=docActivo===0;
-  if(sig) sig.disabled=docActivo>=r.docs.length-1;
-  const pie=$("#visorPie");
-  if(pie&&d) pie.innerHTML=`<a href="${esc(d.url)}" target="_blank" rel="noopener">Abrir en una pestaña nueva &nearr;</a>`;
-  document.querySelectorAll("#visorPuntos button").forEach((b,i)=>
-    b.setAttribute("aria-current", i===docActivo?"true":"false"));
-}
-
-function mostrar(clave,irArriba){
-  const r=REGISTROS.find(x=>x.clave===clave); if(!r) return;
-  claveActiva=clave; docActivo=0;
-  history.replaceState(null,"","#"+encodeURIComponent(clave));
-  document.body.classList.add("ver-ficha");
-  document.querySelectorAll("#lista button").forEach(b=>
-    b.setAttribute("aria-current", b.dataset.clave===clave?"true":"false"));
-
-  const varios=r.docs.length>1;
-  const visor = r.docs.length ? `
-    <section class="visor" aria-label="Documentos relacionados">
-      <div class="visor-cab">
-        <span class="rotulo" id="visorRotulo"></span>
-        ${varios?`<span class="paso">
-          <button type="button" id="visorAnt" aria-label="Documento anterior">&larr;</button>
-          <span id="visorPos"></span>
-          <button type="button" id="visorSig" aria-label="Documento siguiente">&rarr;</button>
-        </span>`:""}
-      </div>
-      <div id="zonaVisor"></div>
-      ${varios?`<div class="puntos" id="visorPuntos" role="group" aria-label="Elegir documento">`+
-        r.docs.map((d,i)=>`<button type="button" onclick="irDoc(${i})">${esc(d.rotulo)} ${i+1}</button>`).join("")+
-      `</div>`:""}
-      <div class="visor-pie" id="visorPie"></div>
-    </section>`
-    : `<section class="visor" aria-label="Documentos relacionados">
-         <div class="sin-doc">Todavía no hay documentos cargados para este título.
-         ${r.pendientes.length?`<br><small>Pendiente de subir: ${esc(r.pendientes.join(", "))}</small>`:""}</div>
-       </section>`;
-
-  $("#ficha").innerHTML=`
-    <button type="button" class="volver" onclick="volver()">&larr; Volver al índice</button>
-    <p class="f-medio">${esc(r.medio)}</p>
-    <h2 class="f-titulo">${esc(r.titulo)}</h2>
-    <p class="f-anio">${esc(r.anio||"Sin año")}</p>
-    ${r.rol?`<p class="f-rol">${esc(r.rol)}</p>`:""}
-    ${visor}
-    <section class="comentario" aria-label="Comentario de Soledad Silveyra">
-      <h3>Comentario de Soledad Silveyra</h3>
-      <div id="zonaAudio"></div>
-      <div id="zonaGrabar"></div>
-      <p class="aviso-grab" id="avisoGrab" role="status" aria-live="polite"></p>
-    </section>
-    ${r.elenco?`<section class="bloque"><h3>Elenco y ficha</h3><p>${esc(r.elenco)}</p></section>`:""}
-    ${r.secciones.map(s=>`<section class="bloque"><h3>${esc(s.rotulo)}</h3><p>${esc(s.texto)}</p></section>`).join("")}
-  `;
-  pintarVisor(r);
-  pintarAudio(r);
-  const a=$("#visorAnt"), s=$("#visorSig");
-  if(a) a.onclick=()=>{ if(docActivo>0){docActivo--;pintarVisor(r);} };
-  if(s) s.onclick=()=>{ if(docActivo<r.docs.length-1){docActivo++;pintarVisor(r);} };
-  if(irArriba) desplazarA($("#ficha"));
-  $("#ficha").focus({preventScroll:true});
-}
-window.irDoc=function(i){ docActivo=i; pintarVisor(REGISTROS.find(x=>x.clave===claveActiva)); };
-window.volver=function(){
-  document.body.classList.remove("ver-ficha");
-  const b=document.querySelector(`#lista button[data-clave="${CSS.escape(claveActiva)}"]`);
-  if(b){ desplazarA(b); b.focus({preventScroll:true}); }
-};
-/* Lleva el elemento justo debajo de la barra fija, cuya altura cambia
-   según el tamaño de pantalla (en celular ocupa mucho más). */
-function desplazarA(el){
-  const barra=document.querySelector(".barra");
-  const alto=barra?barra.getBoundingClientRect().height:0;
-  const y=el.getBoundingClientRect().top+window.scrollY-alto-14;
-  window.scrollTo({top:Math.max(0,y),behavior:"smooth"});
-}
-function abrirDeURL(){
-  const h=decodeURIComponent(location.hash.replace(/^#/,""));
-  if(h&&REGISTROS.some(r=>r.clave===h)) mostrar(h,false);
-}
-
-/* ==========================================================================
-   Comentario de audio: reproducir y grabar
-   ========================================================================== */
-let modoEdicion=false, clave="", grabador=null, trozos=[], blobGrabado=null, cron=null, seg=0;
-
-function urlAudioDirecta(u){
-  const id=idDrive(u);
-  return id?`https://drive.google.com/uc?export=download&id=${id}`:u;
-}
-function pintarAudio(r){
-  const z=$("#zonaAudio");
-  z.innerHTML = r.audioURL
-    ? `<audio controls preload="none" src="${esc(urlAudioDirecta(r.audioURL))}">
-         <a href="${esc(r.audioURL)}" target="_blank" rel="noopener">Escuchar el comentario</a>
-       </audio>
-       <p style="font-size:.78rem;color:var(--tinta-3)">
-         <a href="${esc(r.audioURL)}" target="_blank" rel="noopener" style="color:var(--acento)">Abrir en Drive &nearr;</a></p>`
-    : `<p class="vacio">Todavía no hay un comentario grabado para este título.</p>`;
-  pintarGrabar(r);
-}
-function pintarGrabar(r){
-  const z=$("#zonaGrabar");
-  if(!modoEdicion){ z.innerHTML=""; return; }
-  if(!CONFIG.APPS_SCRIPT){
-    z.innerHTML=`<p class="aviso-grab mal">Falta configurar la dirección del Apps Script en CONFIG.APPS_SCRIPT
-                 para poder guardar los audios.</p>`;
-    return;
+  var imgBlock = '';
+  if (img && img.indexOf('http') === 0) {
+    var direct = driveDirect(img);
+    imgBlock = '<div class="imgwrap"><img src="' + direct + '" onerror="this.parentElement.innerHTML=\'<div class=placeholder>No se pudo cargar la imagen (revisar permisos de Drive)</div>\'"></div>';
+  } else if (img) {
+    imgBlock = '<div class="imgwrap"><div class="placeholder">' + img + '<br><br>pendiente de subir</div></div>';
   }
-  z.innerHTML=`
-    <div class="fila-grabar">
-      <button type="button" class="btn rojo" id="btnGrabar"><span class="bolita"></span><span id="txtGrabar">Grabar</span></button>
-      <span class="cronometro" id="cron" hidden>0:00</span>
-      <button type="button" class="btn sec" id="btnGuardar" hidden>Guardar</button>
-      <button type="button" class="btn sec" id="btnDescartar" hidden>Descartar</button>
-    </div>
-    <div id="previa"></div>`;
-  $("#btnGrabar").onclick=()=>alternarGrabacion(r);
-  $("#btnGuardar").onclick=()=>guardarAudio(r);
-  $("#btnDescartar").onclick=()=>{ blobGrabado=null; $("#previa").innerHTML=""; sincronizarBotones(); };
-  sincronizarBotones();
-}
-function sincronizarBotones(){
-  const g=$("#btnGuardar"), d=$("#btnDescartar");
-  if(g) g.hidden=!blobGrabado;
-  if(d) d.hidden=!blobGrabado;
-}
-function avisar(txt,clase){ const a=$("#avisoGrab"); if(a){ a.textContent=txt; a.className="aviso-grab "+(clase||""); } }
 
-async function alternarGrabacion(r){
-  const btn=$("#btnGrabar"), txt=$("#txtGrabar"), c=$("#cron");
-  if(grabador && grabador.state==="recording"){ grabador.stop(); return; }
-  if(!navigator.mediaDevices||!window.MediaRecorder){
-    avisar("Este navegador no permite grabar audio, o la página se abrió sin servidor (file://).","mal"); return;
+  var linksHtml = '';
+  if (link) {
+    var parts = link.split('|').map(function(s){ return s.trim(); }).filter(Boolean);
+    linksHtml = '<div class="links-row">';
+    parts.forEach(function(url, i){
+      var label = parts.length > 1 ? ('Enlace ' + (i+1) + ' ↗') : 'Ver enlace relacionado ↗';
+      linksHtml += '<a class="link" href="' + url + '" target="_blank">' + label + '</a>';
+    });
+    linksHtml += '</div>';
   }
-  try{
-    const stream=await navigator.mediaDevices.getUserMedia({audio:true});
-    trozos=[]; blobGrabado=null; $("#previa").innerHTML=""; sincronizarBotones();
-    grabador=new MediaRecorder(stream);
-    grabador.ondataavailable=e=>{ if(e.data.size) trozos.push(e.data); };
-    grabador.onstop=()=>{
-      clearInterval(cron); c.hidden=true;
-      stream.getTracks().forEach(t=>t.stop());
-      btn.classList.remove("grabando"); txt.textContent="Grabar de nuevo";
-      blobGrabado=new Blob(trozos,{type:grabador.mimeType||"audio/webm"});
-      $("#previa").innerHTML=`<audio controls src="${URL.createObjectURL(blobGrabado)}" style="margin-top:12px;width:100%;max-width:460px"></audio>`;
-      sincronizarBotones();
-      avisar("Escuchá la grabación y guardala si está bien.","");
+
+  var html = '';
+  html += '<span class="tag">' + medio + '</span><span class="year">' + year + '</span>';
+  html += '<h2>' + title + '</h2>';
+  if (rol) html += '<div class="rol">Rol: ' + rol + '</div>'; else html += '<div style="margin-bottom:16px"></div>';
+  html += imgBlock;
+  if (elenco) html += '<div class="section"><h3>Elenco / ficha</h3><p>' + elenco + '</p></div>';
+  html += linksHtml;
+  html += audioBoxHtml(idx);
+
+  detailEl.innerHTML = html;
+  wireAudioBox(idx);
+}
+
+function driveDirect(url) {
+  var match = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+  if (match) return 'https://drive.google.com/uc?export=view&id=' + match[1];
+  return url;
+}
+
+var mediaRecorder = null;
+var audioChunks = [];
+var recordingIdx = null;
+
+function audioKey(idx){ return 'tatita_audio_' + idx; }
+
+function audioBoxHtml(idx){
+  var saved = localStorage.getItem(audioKey(idx));
+  var playerHtml = saved
+    ? '<audio controls src="' + saved + '"></audio><button class="del-btn" id="del-audio">Eliminar</button>'
+    : '<span style="font-size:12px; color:rgba(28,43,58,0.5); font-style:italic;">Sin comentario grabado</span>';
+  return '<div class="audio-box">' +
+    '<h3>Comentario de Soledad Silveyra</h3>' +
+    '<div class="audio-controls">' +
+      '<button class="rec-btn" id="rec-btn"><span class="dot"></span><span id="rec-label">Grabar</span></button>' +
+      '<span id="audio-player">' + playerHtml + '</span>' +
+    '</div>' +
+  '</div>';
+}
+
+function wireAudioBox(idx){
+  var btn = document.getElementById('rec-btn');
+  var label = document.getElementById('rec-label');
+  var playerWrap = document.getElementById('audio-player');
+
+  var delBtn = document.getElementById('del-audio');
+  if (delBtn) {
+    delBtn.onclick = function(){
+      localStorage.removeItem(audioKey(idx));
+      playerWrap.innerHTML = '<span style="font-size:12px; color:rgba(28,43,58,0.5); font-style:italic;">Sin comentario grabado</span>';
+      var li = listEl.querySelector('[data-idx="' + idx + '"] .title span');
+      if (li) li.remove();
     };
-    grabador.start();
-    seg=0; c.hidden=false; c.textContent="0:00";
-    cron=setInterval(()=>{
-      seg++; c.textContent=Math.floor(seg/60)+":"+String(seg%60).padStart(2,"0");
-      if(seg>=CONFIG.MAX_SEG && grabador.state==="recording"){ grabador.stop(); avisar("Se alcanzó el máximo de duración.","");}
-    },1000);
-    btn.classList.add("grabando"); txt.textContent="Detener";
-    avisar("Grabando…","");
-  }catch(e){ avisar("No se pudo acceder al micrófono: "+e.message,"mal"); }
-}
-
-function blobABase64(b){
-  return new Promise((ok,mal)=>{
-    const fr=new FileReader();
-    fr.onloadend=()=>ok(String(fr.result).split(",")[1]);
-    fr.onerror=()=>mal(new Error("no se pudo leer la grabación"));
-    fr.readAsDataURL(b);
-  });
-}
-async function guardarAudio(r){
-  if(!blobGrabado) return;
-  const g=$("#btnGuardar"); g.disabled=true;
-  avisar("Guardando en Drive…","");
-  try{
-    const b64=await blobABase64(blobGrabado);
-    // text/plain evita el pedido previo de permisos, que Apps Script no responde
-    const resp=await conCorte(fetch(CONFIG.APPS_SCRIPT,{
-      method:"POST", headers:{"Content-Type":"text/plain;charset=utf-8"},
-      body:JSON.stringify({
-        clave, fila:r.fila, anio:r.anio, titulo:r.titulo, medio:r.medio,
-        mime:blobGrabado.type||"audio/webm", audio:b64
-      })
-    }),60000,"el guardado");
-    const data=await resp.json();
-    if(!data.ok) throw new Error(data.error||"el servidor rechazó el guardado");
-    r.audioURL=data.url;
-    blobGrabado=null;
-    avisar("Comentario guardado.","bien");
-    pintarAudio(r); aplicar();
-  }catch(e){
-    avisar("No se pudo guardar: "+e.message+". La grabación sigue acá, podés reintentar.","mal");
-  }finally{ if(g) g.disabled=false; }
-}
-
-/* ==========================================================================
-   Modo edición
-   ========================================================================== */
-$("#btnModo").onclick=()=>{
-  if(modoEdicion){
-    modoEdicion=false; clave="";
-    $("#btnModo").textContent="Modo edición";
-    avisar("");
-    if(claveActiva) pintarAudio(REGISTROS.find(x=>x.clave===claveActiva));
-    return;
   }
-  const d=$("#dlgClave"); $("#claveInp").value=""; d.showModal();
-};
-$("#dlgClave").addEventListener("close",()=>{
-  if($("#dlgClave").returnValue!=="ok") return;
-  const v=$("#claveInp").value.trim();
-  if(!v) return;
-  clave=v; modoEdicion=true;
-  $("#btnModo").textContent="Salir de edición";
-  if(claveActiva) pintarAudio(REGISTROS.find(x=>x.clave===claveActiva));
-  avisar("Modo edición activo. La clave se comprueba al guardar.","");
-});
 
-/* ==========================================================================
-   Eventos
-   ========================================================================== */
-let temp;
-$("#buscar").addEventListener("input",()=>{clearTimeout(temp);temp=setTimeout(aplicar,130);});
-$("#limpiar").addEventListener("click",()=>{$("#buscar").value="";aplicar();$("#buscar").focus();});
-window.addEventListener("hashchange",abrirDeURL);
-document.addEventListener("keydown",e=>{
-  if(e.key==="/"&&document.activeElement!==$("#buscar")&&!/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)){
-    e.preventDefault(); $("#buscar").focus();
-  }
-  if(e.key==="Escape"&&document.activeElement===$("#buscar")){ $("#buscar").value=""; aplicar(); }
-  if(!claveActiva) return;
-  const r=REGISTROS.find(x=>x.clave===claveActiva); if(!r||r.docs.length<2) return;
-  if(e.key==="ArrowRight"&&docActivo<r.docs.length-1){docActivo++;pintarVisor(r);}
-  if(e.key==="ArrowLeft"&&docActivo>0){docActivo--;pintarVisor(r);}
-});
-$("#lista").addEventListener("keydown",e=>{
-  if(e.key!=="ArrowDown"&&e.key!=="ArrowUp") return;
-  const bs=[...document.querySelectorAll("#lista button")];
-  const i=bs.indexOf(document.activeElement); if(i<0) return;
-  e.preventDefault();
-  bs[e.key==="ArrowDown"?Math.min(i+1,bs.length-1):Math.max(i-1,0)].focus();
-});
+  btn.onclick = function(){
+    if (mediaRecorder && mediaRecorder.state === 'recording') {
+      mediaRecorder.stop();
+      return;
+    }
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+      alert('Este navegador no permite grabar audio, o el archivo se abrió directamente sin servidor (protocolo file://). Subilo a un hosting o abrilo por localhost.');
+      return;
+    }
+    navigator.mediaDevices.getUserMedia({ audio: true }).then(function(stream){
+      audioChunks = [];
+      recordingIdx = idx;
+      mediaRecorder = new MediaRecorder(stream);
+      mediaRecorder.ondataavailable = function(e){ audioChunks.push(e.data); };
+      mediaRecorder.onstop = function(){
+        var blob = new Blob(audioChunks, { type: 'audio/webm' });
+        var reader = new FileReader();
+        reader.onloadend = function(){
+          localStorage.setItem(audioKey(recordingIdx), reader.result);
+          var listItem = listEl.querySelector('[data-idx="' + recordingIdx + '"] .title');
+          if (listItem && listItem.textContent.indexOf('●') === -1) {
+            listItem.innerHTML += ' <span style="color:var(--wine); font-size:10px;">●</span>';
+          }
+          if (recordingIdx === idx) {
+            playerWrap.innerHTML = '<audio controls src="' + reader.result + '"></audio><button class="del-btn" id="del-audio">Eliminar</button>';
+            document.getElementById('del-audio').onclick = function(){
+              localStorage.removeItem(audioKey(idx));
+              playerWrap.innerHTML = '<span style="font-size:12px; color:rgba(28,43,58,0.5); font-style:italic;">Sin comentario grabado</span>';
+              var li = listEl.querySelector('[data-idx="' + idx + '"] .title span');
+              if (li) li.remove();
+            };
+          }
+        };
+        reader.readAsDataURL(blob);
+        stream.getTracks().forEach(function(t){ t.stop(); });
+        btn.classList.remove('recording');
+        label.textContent = 'Grabar';
+      };
+      mediaRecorder.start();
+      btn.classList.add('recording');
+      label.textContent = 'Detener';
+    }).catch(function(err){
+      alert('No se pudo acceder al micrófono: ' + err.message);
+    });
+  };
+}
 
-cargar(false);
+qEl.addEventListener('input', function(e){ render(e.target.value); });
+render("");
 </script>
+
 </body>
 </html>
