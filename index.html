@@ -48,16 +48,23 @@ button{font:inherit;color:inherit}
    PORTADA
    ========================================================================== */
 .nav-sup{
-  display:flex;align-items:center;justify-content:center;gap:34px;
-  padding:22px 32px;flex-wrap:wrap;position:relative;
+  display:flex;align-items:center;justify-content:center;
+  padding:26px 32px 22px;position:relative;
 }
-.nav-sup .grupo{display:flex;gap:26px;flex-wrap:wrap;justify-content:center}
-.nav-sup a,.nav-sup button.enlace{
-  font-family:var(--serif);font-size:1.05rem;letter-spacing:.02em;
-  color:var(--tinta-2);text-decoration:none;background:none;border:none;cursor:pointer;
-  padding:3px 1px;border-bottom:1px solid transparent;
+/* "Modo edición" queda apartado a la derecha, sin competir con el nombre.
+   Sólo aparece si hay un Apps Script configurado. */
+.nav-sup button.enlace{
+  position:absolute;right:32px;top:50%;transform:translateY(-50%);
+  font-family:var(--sans);font-size:.66rem;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--tinta-3);background:none;border:none;cursor:pointer;
+  padding:6px 2px;border-bottom:1px solid transparent;
 }
-.nav-sup a:hover,.nav-sup button.enlace:hover{color:var(--tinta);border-bottom-color:var(--tinta)}
+.nav-sup button.enlace:hover{color:var(--tinta);border-bottom-color:var(--tinta)}
+@media (max-width:640px){
+  .nav-sup{padding:18px 18px 16px;flex-direction:column;gap:10px}
+  .nav-sup button.enlace{position:static;transform:none}
+}
 .marca{
   font-family:var(--serif);font-size:2rem;font-weight:400;
   letter-spacing:.16em;text-transform:uppercase;text-align:center;
@@ -187,7 +194,17 @@ ol.lista button[aria-current="true"]{background:var(--acento-cl);border-left-col
 .volver{display:none}
 .f-medio{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--tinta-3);font-weight:600;margin-bottom:10px}
 .f-titulo{font-family:var(--serif);font-size:clamp(2rem,4.4vw,3.1rem);font-weight:400;line-height:1.08;margin-bottom:8px}
-.f-anio{font-family:var(--serif);font-style:italic;font-size:1.45rem;color:var(--acento);margin-bottom:26px}
+.f-anio{
+  font-family:var(--serif);font-style:italic;font-size:1.45rem;color:var(--acento);
+  margin-bottom:26px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+}
+.btn-compartir{
+  font-family:var(--sans);font-style:normal;font-size:.64rem;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-3);
+  background:none;border:1px solid var(--linea);border-radius:2px;
+  padding:5px 11px;cursor:pointer;
+}
+.btn-compartir:hover{border-color:var(--tinta);color:var(--tinta)}
 .f-rol{
   font-family:var(--serif);font-size:1.3rem;font-style:italic;color:var(--tinta-2);
   border-left:2px solid var(--acento);padding-left:16px;margin-bottom:28px;
@@ -335,16 +352,8 @@ dialog .fila{display:flex;gap:10px;justify-content:flex-end}
 <a class="salto" href="#buscar">Ir al buscador</a>
 
 <header class="nav-sup">
-  <nav class="grupo" aria-label="Secciones">
-    <a href="#archivo">Archivo</a>
-    <a href="#archivo">Cine</a>
-    <a href="#archivo">Teatro</a>
-  </nav>
   <div class="marca">Soledad Silveyra</div>
-  <nav class="grupo" aria-label="Herramientas">
-    <a href="#archivo">Televisión</a>
-    <button type="button" class="enlace" id="btnModo">Modo edición</button>
-  </nav>
+  <button type="button" class="enlace" id="btnModo" hidden>Modo edición</button>
 </header>
 
 <div class="portada">
@@ -383,6 +392,7 @@ dialog .fila{display:flex;gap:10px;justify-content:flex-end}
         <p id="ayuda" class="sr">No hace falta escribir tildes ni respetar mayúsculas ni puntuación.</p>
       </div>
       <div class="medios" id="medios" role="group" aria-label="Filtrar por medio"></div>
+      <div class="medios" id="filtroAudio" role="group" aria-label="Filtrar por comentario"></div>
       <p class="cuenta"><b id="cuenta">0</b> <span id="cuentaTxt">títulos</span></p>
     </div>
   </div>
@@ -424,7 +434,7 @@ const CONFIG = {
   SHEET_ID: "1OWRL6R7vfmsjCdZw8nE-bxhg3ROrPsohL-ED89GSzIA",
   HOJA: "",                 // vacío = primera hoja
   CSV_PUBLICADO: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQXxB-DtnCyO-vN0Pjd4hrtbDO6Xgzee0U1dQqQQuRLwetvKlfYCIiGT4kF1CApRAzDRa01hF9wXYd8/pub?output=csv",
-  APPS_SCRIPT: "",          // URL /exec del Apps Script que guarda los audios
+  APPS_SCRIPT: "https://script.google.com/macros/s/AKfycbyvRDWVDYrbmGIVXRGVpmNVZf3t2CdLq5m8Rkl-0ww-6APXbrvOORLXI60HTLmhQpnWpA/exec",
   COL_AUDIO: "Audio de Soledad",
   // Columnas que NO son documentos (las primeras cinco, fijas)
   COL_ANIO: "Año", COL_TITULO: "Título", COL_MEDIO: "Medio",
@@ -660,7 +670,7 @@ function terminar(){
 /* ==========================================================================
    Índice, filtros y búsqueda
    ========================================================================== */
-let medioActivo=null, claveActiva=null;
+let medioActivo=null, claveActiva=null, soloConAudio=false;
 
 function armarMedios(){
   MEDIOS=[...new Set(REGISTROS.map(r=>r.medio))].sort((a,b)=>a.localeCompare(b,"es"));
@@ -673,6 +683,17 @@ function armarMedios(){
     c.appendChild(b);
   };
   mk("Todos",null); MEDIOS.forEach(m=>mk(m,m));
+
+  // Filtro aparte: sólo los títulos que ya tienen comentario grabado
+  const fa=$("#filtroAudio"); fa.innerHTML="";
+  const con=REGISTROS.filter(r=>r.audioURL).length;
+  if(con){
+    const b=document.createElement("button");
+    b.type="button"; b.textContent="Con comentario ("+con+")";
+    b.setAttribute("aria-pressed", soloConAudio?"true":"false");
+    b.onclick=()=>{ soloConAudio=!soloConAudio; armarMedios(); aplicar(); };
+    fa.appendChild(b);
+  }
 }
 
 function aplicar(){
@@ -680,6 +701,7 @@ function aplicar(){
   const terminos=q?q.split(" "):[];
   const res=REGISTROS.filter(r=>{
     if(medioActivo && r.medio!==medioActivo) return false;
+    if(soloConAudio && !r.audioURL) return false;
     return terminos.every(t=>r.indice.includes(t));
   });
   $("#cuenta").textContent=res.length;
@@ -784,7 +806,9 @@ function mostrar(clave,irArriba){
     <button type="button" class="volver" onclick="volver()">&larr; Volver al índice</button>
     <p class="f-medio">${esc(r.medio)}</p>
     <h2 class="f-titulo">${esc(r.titulo)}</h2>
-    <p class="f-anio">${esc(r.anio||"Sin año")}</p>
+    <p class="f-anio">${esc(r.anio||"Sin año")}
+      <button type="button" class="btn-compartir" onclick="compartir(this)">Copiar enlace</button>
+    </p>
     ${r.rol?`<p class="f-rol"><span class="rotulo">Personaje</span>${esc(r.rol)}</p>`:""}
     ${visor}
     <section class="comentario" aria-label="Comentario de Soledad Silveyra">
@@ -857,11 +881,13 @@ function pintarGrabar(r){
       <span class="cronometro" id="cron" hidden>0:00</span>
       <button type="button" class="btn sec" id="btnGuardar" hidden>Guardar</button>
       <button type="button" class="btn sec" id="btnDescartar" hidden>Descartar</button>
+      ${r.audioURL?`<button type="button" class="btn sec" id="btnBorrar">Borrar comentario</button>`:""}
     </div>
     <div id="previa"></div>`;
   $("#btnGrabar").onclick=()=>alternarGrabacion(r);
   $("#btnGuardar").onclick=()=>guardarAudio(r);
   $("#btnDescartar").onclick=()=>{ blobGrabado=null; $("#previa").innerHTML=""; sincronizarBotones(); };
+  const bb=$("#btnBorrar"); if(bb) bb.onclick=()=>borrarAudio(r);
   sincronizarBotones();
 }
 function sincronizarBotones(){
@@ -935,9 +961,47 @@ async function guardarAudio(r){
   }finally{ if(g) g.disabled=false; }
 }
 
+async function borrarAudio(r){
+  if(!confirm("¿Borrar el comentario grabado de \""+r.titulo+"\"?\n\n"+
+              "El audio va a la papelera de Drive: se puede recuperar por 30 días.")) return;
+  const b=$("#btnBorrar"); if(b) b.disabled=true;
+  avisar("Borrando…","");
+  try{
+    const resp=await conCorte(fetch(CONFIG.APPS_SCRIPT,{
+      method:"POST", headers:{"Content-Type":"text/plain;charset=utf-8"},
+      body:JSON.stringify({
+        clave, accion:"borrar",
+        fila:r.fila, anio:r.anio, titulo:r.titulo, medio:r.medio
+      })
+    }),30000,"el borrado");
+    const data=await resp.json();
+    if(!data.ok) throw new Error(data.error||"el servidor rechazó el borrado");
+    r.audioURL=null;
+    avisar("Comentario borrado.","bien");
+    pintarAudio(r); armarMedios(); aplicar();
+  }catch(e){
+    avisar("No se pudo borrar: "+e.message,"mal");
+    if(b) b.disabled=false;
+  }
+}
+
+window.compartir=function(b){
+  const url=location.href, t=b.textContent;
+  const listo=()=>{ b.textContent="¡Copiado!"; setTimeout(()=>{b.textContent=t;},1800); };
+  if(navigator.clipboard) navigator.clipboard.writeText(url).then(listo).catch(()=>prompt("Copiá el enlace:",url));
+  else prompt("Copiá el enlace:",url);
+};
+
 /* ==========================================================================
    Modo edición
    ========================================================================== */
+/* El botón de edición no tiene sentido sin un Apps Script donde guardar:
+   si no está configurado, no se muestra. */
+window.actualizarModoEdicion=function(){
+  $("#btnModo").hidden = !CONFIG.APPS_SCRIPT;
+};
+actualizarModoEdicion();
+
 $("#btnModo").onclick=()=>{
   if(modoEdicion){
     modoEdicion=false; clave="";
