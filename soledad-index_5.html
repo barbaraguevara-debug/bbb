@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Soledad Silveyra — Archivo</title>
+<meta name="description" content="Archivo de la trayectoria de Soledad Silveyra en cine, teatro y televisión.">
+<meta name="theme-color" content="#F7F4EE">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   CONFIGURACIÓN VISUAL
+   Los colores y tipografías se cambian sólo acá.
+   ========================================================================== */
+:root{
+  --papel:#F7F4EE;         /* fondo crema */
+  --papel-2:#EFEBE2;       /* crema apenas más oscuro */
+  --papel-3:#E5E0D5;       /* bordes suaves */
+  --tinta:#1C1A17;         /* texto principal */
+  --tinta-2:#4B463E;       /* texto secundario */
+  --tinta-3:#736C60;       /* texto terciario (cumple AA sobre crema) */
+  --acento:#7A2E2E;        /* bordó editorial */
+  --acento-cl:#F0E4E2;     /* bordó muy claro */
+  --foco:#1B4D8F;          /* anillo de foco, alto contraste */
+  --linea:#D6D0C3;
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --sans:'Jost',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  font-family:var(--sans);background:var(--papel);color:var(--tinta);
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+button{font:inherit;color:inherit}
+
+/* ---- Accesibilidad ---- */
+:focus-visible{outline:3px solid var(--foco);outline-offset:3px;border-radius:2px}
+.salto{position:absolute;left:-9999px;top:0;z-index:999;background:var(--tinta);color:var(--papel);padding:14px 22px;font-weight:600}
+.salto:focus{left:0}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+/* ==========================================================================
+   PORTADA
+   ========================================================================== */
+.nav-sup{
+  display:flex;align-items:center;justify-content:center;
+  padding:26px 32px 22px;position:relative;
+}
+/* "Modo edición" queda apartado a la derecha, sin competir con el nombre.
+   Sólo aparece si hay un Apps Script configurado. */
+.nav-sup button.enlace{
+  position:absolute;right:32px;top:50%;transform:translateY(-50%);
+  font-family:var(--sans);font-size:.66rem;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--tinta-3);background:none;border:none;cursor:pointer;
+  padding:6px 2px;border-bottom:1px solid transparent;
+}
+.nav-sup button.enlace:hover{color:var(--tinta);border-bottom-color:var(--tinta)}
+@media (max-width:640px){
+  .nav-sup{padding:18px 18px 16px;flex-direction:column;gap:10px}
+  .nav-sup button.enlace{position:static;transform:none}
+}
+.marca{
+  font-family:var(--serif);font-size:2rem;font-weight:400;
+  letter-spacing:.16em;text-transform:uppercase;text-align:center;
+  white-space:nowrap;
+}
+.portada{position:relative;background:var(--papel-2);overflow:hidden}
+.portada::after{content:"";position:absolute;left:0;right:0;bottom:0;height:90px;
+  background:linear-gradient(to bottom,rgba(247,244,238,0),var(--papel));pointer-events:none}
+/* ============================================================
+   ENCUADRE DE LA PORTADA
+   Sin ampliación: la foto entra tal cual, de punta a punta.
+
+   --alto-portada: qué franja de la foto se ve.
+       30% = se ve más de arriba   |   50% = centrada   |   70% = más de abajo
+   (En pantallas anchas el ajuste horizontal no tiene efecto:
+    la foto ya entra justo a lo ancho y sólo sobra arriba y abajo.)
+   ============================================================ */
+.portada .foto{
+  --alto-portada:30%;
+  width:100%;height:clamp(300px,58vh,620px);
+  object-fit:cover;object-position:center var(--alto-portada);
+}
+@media (max-width:900px){
+  /* En pantallas angostas sí sobra a los costados y se puede elegir. */
+  .portada .foto{object-position:42% var(--alto-portada)}
+}
+[hidden]{display:none!important}
+.portada .sin-foto{
+  width:100%;height:clamp(300px,58vh,620px);
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  background:linear-gradient(160deg,#EFEBE2,#DED8CB);color:var(--tinta-3);
+  font-family:var(--serif);font-size:1.1rem;font-style:italic;padding:24px;
+}
+.bajada{
+  max-width:940px;margin:0 auto;padding:40px 32px 34px;
+  display:grid;grid-template-columns:1fr 1fr;gap:34px;
+}
+.bajada p{font-family:var(--serif);font-size:1.22rem;line-height:1.62;color:var(--tinta-2)}
+.bajada p .capital{
+  float:left;font-family:var(--serif);font-size:4.1rem;line-height:.78;
+  padding:6px 10px 0 0;color:var(--acento);font-weight:500;
+}
+@media (max-width:760px){.bajada{grid-template-columns:1fr;gap:18px;padding:28px 20px}}
+
+/* ==========================================================================
+   ARCHIVO
+   ========================================================================== */
+.archivo{border-top:1px solid var(--linea);background:var(--papel)}
+.barra{
+  position:sticky;top:0;z-index:40;background:var(--papel);
+  border-bottom:1px solid var(--linea);
+  padding:16px 32px 12px;
+}
+.barra-int{max-width:1400px;margin:0 auto;display:flex;gap:24px;align-items:flex-end;flex-wrap:wrap}
+.campo{flex:1;min-width:250px}
+.campo label{
+  display:block;font-size:.68rem;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--tinta-3);margin-bottom:6px;
+}
+.campo .caja{position:relative}
+.campo input{
+  width:100%;background:transparent;border:none;border-bottom:1.5px solid var(--tinta-2);
+  font-family:var(--serif);font-size:1.35rem;color:var(--tinta);
+  padding:4px 34px 7px 0;
+}
+.campo input::placeholder{color:var(--tinta-3);font-style:italic}
+.campo input:focus{border-bottom-color:var(--acento);outline-offset:4px}
+.campo .limpiar{
+  position:absolute;right:0;bottom:6px;background:none;border:none;cursor:pointer;
+  color:var(--tinta-3);font-size:1.4rem;line-height:1;padding:2px 6px;
+}
+.campo .limpiar:hover{color:var(--tinta)}
+.medios{display:flex;gap:18px;flex-wrap:wrap;padding-bottom:6px}
+.medios button{
+  background:none;border:none;cursor:pointer;
+  font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--tinta-3);padding:4px 1px;border-bottom:1.5px solid transparent;
+}
+.medios button:hover{color:var(--tinta)}
+.medios button[aria-pressed="true"]{color:var(--acento);border-bottom-color:var(--acento)}
+.cuenta{
+  font-family:var(--serif);font-size:1rem;color:var(--tinta-3);
+  white-space:nowrap;padding-bottom:8px;
+}
+.cuenta b{color:var(--acento);font-weight:600;font-size:1.2rem}
+
+.estado{
+  padding:8px 32px;font-size:.78rem;border-bottom:1px solid var(--linea);
+  display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+}
+.estado .txt{max-width:1400px;margin:0 auto;width:100%}
+.estado.ok{background:var(--papel-2);color:var(--tinta-3)}
+.estado.aviso{background:#F6EDD8;color:#6B4E05}
+.estado.error{background:#F6E2E0;color:#7A1F1A}
+.estado button{
+  background:none;border:none;cursor:pointer;text-decoration:underline;
+  text-underline-offset:3px;font-size:.78rem;font-weight:600;color:inherit;padding:2px;
+}
+
+.tablero{display:flex;max-width:1400px;margin:0 auto;min-height:60vh;align-items:flex-start}
+.indice{
+  width:390px;flex-shrink:0;border-right:1px solid var(--linea);
+  align-self:stretch;
+}
+ol.lista{list-style:none}
+ol.lista li{border-bottom:1px solid var(--papel-3)}
+ol.lista button{
+  width:100%;text-align:left;background:none;border:none;cursor:pointer;
+  padding:15px 26px 15px 22px;display:block;border-left:3px solid transparent;
+}
+ol.lista button:hover{background:var(--papel-2)}
+ol.lista button[aria-current="true"]{background:var(--acento-cl);border-left-color:var(--acento)}
+.li-alto{display:flex;gap:12px;align-items:baseline;margin-bottom:2px}
+.li-anio{font-family:var(--serif);font-size:1.05rem;color:var(--acento);font-weight:600;min-width:2.9em}
+.li-medio{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--tinta-3);font-weight:600}
+.li-titulo{font-family:var(--serif);font-size:1.28rem;line-height:1.25;color:var(--tinta);padding-left:calc(2.9em + 12px)}
+.li-marcas{padding-left:calc(2.9em + 12px);margin-top:5px;display:flex;gap:7px;flex-wrap:wrap}
+.pip{
+  font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;
+  padding:2px 7px;border-radius:2px;background:var(--papel-3);color:var(--tinta-2);
+}
+.pip.audio{background:var(--acento);color:#fff}
+.nada{padding:56px 26px;text-align:center;color:var(--tinta-3);font-family:var(--serif);font-size:1.15rem;font-style:italic}
+
+.ficha{flex:1;min-width:0;padding:38px 54px 90px;max-width:900px;scroll-margin-top:104px}
+.indice{scroll-margin-top:104px}
+.volver{display:none}
+.f-medio{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--tinta-3);font-weight:600;margin-bottom:10px}
+.f-titulo{font-family:var(--serif);font-size:clamp(2rem,4.4vw,3.1rem);font-weight:400;line-height:1.08;margin-bottom:8px}
+.f-anio{
+  font-family:var(--serif);font-style:italic;font-size:1.45rem;color:var(--acento);
+  margin-bottom:26px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+}
+.btn-compartir{
+  font-family:var(--sans);font-style:normal;font-size:.64rem;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-3);
+  background:none;border:1px solid var(--linea);border-radius:2px;
+  padding:5px 11px;cursor:pointer;
+}
+.btn-compartir:hover{border-color:var(--tinta);color:var(--tinta)}
+.f-rol{
+  font-family:var(--serif);font-size:1.3rem;font-style:italic;color:var(--tinta-2);
+  border-left:2px solid var(--acento);padding-left:16px;margin-bottom:28px;
+}
+.f-rol .rotulo{
+  display:block;font-family:var(--sans);font-style:normal;
+  font-size:.66rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--tinta-3);margin-bottom:3px;
+}
+.bloque{margin-bottom:34px}
+.bloque h3{
+  font-size:.68rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--tinta-3);padding-bottom:8px;border-bottom:1px solid var(--linea);margin-bottom:14px;
+}
+.bloque p{font-family:var(--serif);font-size:1.16rem;line-height:1.66;color:var(--tinta-2)}
+
+/* ---- Visor / carrusel ---- */
+.visor{border:1px solid var(--linea);background:var(--papel-2);margin-bottom:34px}
+.visor-cab{
+  display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;
+  padding:11px 16px;border-bottom:1px solid var(--linea);background:var(--papel);
+}
+.visor-cab .rotulo{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--tinta-3);font-weight:600}
+.visor-cab .paso{display:flex;align-items:center;gap:6px}
+.visor-cab .paso button{
+  background:none;border:1px solid var(--linea);cursor:pointer;width:32px;height:32px;
+  border-radius:2px;color:var(--tinta-2);font-size:1rem;line-height:1;
+}
+.visor-cab .paso button:hover:not(:disabled){background:var(--papel-2);color:var(--tinta)}
+.visor-cab .paso button:disabled{opacity:.35;cursor:default}
+.visor-cab .paso span{font-family:var(--serif);font-size:.98rem;color:var(--tinta-3);min-width:4.2em;text-align:center}
+.marco{position:relative;width:100%;aspect-ratio:16/10;background:#14120F}
+.marco iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.marco img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#14120F}
+.enlace-ext{
+  padding:32px 24px;text-align:center;background:var(--papel-2);
+}
+.enlace-ext .dominio{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--tinta-3);margin-bottom:10px;font-weight:600}
+.enlace-ext a{
+  font-family:var(--serif);font-size:1.2rem;color:var(--acento);
+  text-decoration:underline;text-underline-offset:4px;word-break:break-word;
+}
+.visor-pie{padding:9px 16px;font-size:.74rem;color:var(--tinta-3);border-top:1px solid var(--linea);background:var(--papel)}
+.visor-pie a{color:var(--acento)}
+.puntos{display:flex;gap:6px;padding:10px 16px;flex-wrap:wrap;background:var(--papel);border-top:1px solid var(--linea)}
+.puntos button{
+  background:none;border:1px solid var(--linea);cursor:pointer;padding:4px 10px;border-radius:2px;
+  font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta-3);font-weight:600;
+}
+.puntos button[aria-current="true"]{background:var(--tinta);border-color:var(--tinta);color:var(--papel)}
+.sin-doc{
+  padding:36px 24px;text-align:center;color:var(--tinta-3);
+  font-family:var(--serif);font-style:italic;font-size:1.1rem;background:var(--papel-2);
+}
+
+/* ---- Comentario de audio ---- */
+.comentario{border:1px solid var(--linea);background:var(--papel-2);padding:20px 22px;margin-bottom:34px}
+.comentario h3{
+  font-size:.68rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--tinta-3);margin-bottom:14px;
+}
+.comentario audio{width:100%;max-width:460px;margin-bottom:12px}
+.comentario .vacio{font-family:var(--serif);font-style:italic;color:var(--tinta-3);font-size:1.08rem}
+.fila-grabar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:12px}
+.btn{
+  background:var(--tinta);color:var(--papel);border:1.5px solid var(--tinta);
+  padding:9px 18px;border-radius:2px;cursor:pointer;
+  font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.btn:hover:not(:disabled){background:transparent;color:var(--tinta)}
+.btn:disabled{opacity:.45;cursor:default}
+.btn.sec{background:transparent;color:var(--tinta-2);border-color:var(--linea)}
+.btn.sec:hover:not(:disabled){border-color:var(--tinta);color:var(--tinta);background:transparent}
+.btn.rojo{background:var(--acento);border-color:var(--acento);color:#fff}
+.btn.rojo:hover:not(:disabled){background:#5E2222;border-color:#5E2222;color:#fff}
+.btn .bolita{width:8px;height:8px;border-radius:50%;background:currentColor;flex-shrink:0}
+.btn.grabando .bolita{animation:latir 1.1s ease-in-out infinite}
+@keyframes latir{0%,100%{opacity:1}50%{opacity:.25}}
+.aviso-grab{font-size:.8rem;color:var(--tinta-3);margin-top:10px}
+.aviso-grab.mal{color:#7A1F1A}
+.aviso-grab.bien{color:#1F5C2E}
+.cronometro{font-family:var(--serif);font-size:1.15rem;color:var(--acento);font-variant-numeric:tabular-nums}
+
+/* ---- Pie ---- */
+footer{
+  border-top:1px solid var(--linea);padding:26px 32px;background:var(--papel-2);
+  display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  font-size:.78rem;color:var(--tinta-3);
+}
+
+/* ---- Diálogo de clave ---- */
+dialog{
+  border:1px solid var(--linea);background:var(--papel);padding:28px;max-width:420px;width:92%;
+  color:var(--tinta);border-radius:2px;
+}
+dialog::backdrop{background:rgba(28,26,23,.55)}
+dialog h2{font-family:var(--serif);font-size:1.6rem;font-weight:400;margin-bottom:8px}
+dialog p{font-size:.9rem;color:var(--tinta-2);margin-bottom:16px}
+dialog input{
+  width:100%;padding:10px 12px;border:1.5px solid var(--linea);background:#fff;
+  font-family:var(--sans);font-size:1rem;margin-bottom:16px;border-radius:2px;color:var(--tinta);
+}
+dialog input:focus{border-color:var(--acento)}
+dialog .fila{display:flex;gap:10px;justify-content:flex-end}
+
+/* ==========================================================================
+   iPad y celular
+   ========================================================================== */
+@media (max-width:1180px){
+  .indice{width:330px}
+  .ficha{padding:32px 34px 80px}
+}
+@media (max-width:900px){
+  .tablero{display:block}
+  .indice{width:100%;border-right:none;border-bottom:1px solid var(--linea)}
+  .ficha{max-width:100%;padding:26px 22px 70px}
+  body.ver-ficha .indice{display:none}
+  body.ver-ficha .volver{
+    display:inline-flex;align-items:center;gap:8px;margin-bottom:22px;
+    background:none;border:1px solid var(--linea);color:var(--tinta-2);
+    padding:9px 15px;border-radius:2px;cursor:pointer;
+    font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  }
+  body.ver-ficha .volver:hover{border-color:var(--tinta);color:var(--tinta)}
+  body:not(.ver-ficha) .ficha{display:none}
+  .barra{padding:14px 22px 10px}
+  .estado{padding:8px 22px}
+  .nav-sup{gap:18px;padding:16px 20px}
+  .marca{font-size:1.4rem;letter-spacing:.12em}
+  .nav-sup .grupo{display:none}
+  .marco{aspect-ratio:4/3}
+}
+@media (max-width:520px){
+  .li-titulo,.li-marcas{padding-left:0}
+  .li-alto{margin-bottom:4px}
+}
+@media print{
+  .barra,.estado,.indice,.nav-sup,.portada,footer,.visor,.comentario,.volver{display:none!important}
+  .ficha{max-width:100%;padding:0}
+}
+</style>
+</head>
+<body>
+<a class="salto" href="#buscar">Ir al buscador</a>
+
+<header class="nav-sup">
+  <div class="marca">Soledad Silveyra</div>
+  <button type="button" class="enlace" id="btnModo" hidden>Modo edición</button>
+</header>
+
+<div class="portada">
+  <img class="foto" id="fotoPortada" src="soledad.jpg" alt="Retrato de Soledad Silveyra"
+       onerror="this.remove();document.getElementById('sinFoto').hidden=false">
+  <div class="sin-foto" id="sinFoto" hidden>
+    Falta la foto de portada.<br>Subí un archivo llamado <b>soledad.jpg</b> junto a esta página.
+  </div>
+</div>
+
+<div class="bajada">
+  <p><span class="capital">S</span>oledad Silveyra construyó a lo largo de seis décadas una de las trayectorias
+     más extensas de la escena argentina. Del teleteatro de los años sesenta al cine de autor,
+     del teatro clásico a la conducción televisiva, su recorrido atraviesa la historia cultural del país.</p>
+  <p>Este archivo reúne su filmografía, sus obras de teatro y sus trabajos en televisión,
+     junto al material gráfico y documental asociado a cada título. Se actualiza de forma
+     permanente a medida que se incorpora nueva documentación.</p>
+</div>
+
+<main class="archivo" id="archivo">
+  <p class="estado ok" id="estado" role="status" aria-live="polite">
+    <span class="txt" id="estadoTxt">Cargando el archivo…</span>
+  </p>
+
+  <div class="barra">
+    <div class="barra-int">
+      <div class="campo">
+        <label for="buscar">Buscar en el archivo</label>
+        <div class="caja">
+          <input type="search" id="buscar" autocomplete="off" spellcheck="false"
+                 placeholder="Título, año, elenco, personaje…" aria-describedby="ayuda">
+          <button type="button" class="limpiar" id="limpiar" hidden>
+            <span aria-hidden="true">&times;</span><span class="sr">Limpiar la búsqueda</span>
+          </button>
+        </div>
+        <p id="ayuda" class="sr">No hace falta escribir tildes ni respetar mayúsculas ni puntuación.</p>
+      </div>
+      <div class="medios" id="medios" role="group" aria-label="Filtrar por medio"></div>
+      <div class="medios" id="filtroAudio" role="group" aria-label="Filtrar por comentario"></div>
+      <p class="cuenta"><b id="cuenta">0</b> <span id="cuentaTxt">títulos</span></p>
+    </div>
+  </div>
+
+  <div class="tablero">
+    <nav class="indice" aria-label="Índice de títulos">
+      <ol class="lista" id="lista"></ol>
+    </nav>
+    <article class="ficha" id="ficha" tabindex="-1" aria-live="polite">
+      <p class="nada">Elegí un título del índice para ver su ficha.</p>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <span>Archivo Soledad Silveyra</span>
+  <span id="pie"></span>
+</footer>
+
+<dialog id="dlgClave" aria-labelledby="dlgTit">
+  <h2 id="dlgTit">Modo edición</h2>
+  <p>Ingresá la clave para poder grabar comentarios. La clave se verifica en el servidor.</p>
+  <form method="dialog">
+    <label class="sr" for="claveInp">Clave</label>
+    <input type="password" id="claveInp" autocomplete="current-password" placeholder="Clave">
+    <div class="fila">
+      <button type="submit" value="cancelar" class="btn sec">Cancelar</button>
+      <button type="submit" value="ok" class="btn">Entrar</button>
+    </div>
+  </form>
+</dialog>
+
+<script>
+"use strict";
+/* ==========================================================================
+   CONFIGURACIÓN — editar sólo este bloque
+   ========================================================================== */
+const CONFIG = {
+  SHEET_ID: "1OWRL6R7vfmsjCdZw8nE-bxhg3ROrPsohL-ED89GSzIA",
+  HOJA: "",                 // vacío = primera hoja
+  CSV_PUBLICADO: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQXxB-DtnCyO-vN0Pjd4hrtbDO6Xgzee0U1dQqQQuRLwetvKlfYCIiGT4kF1CApRAzDRa01hF9wXYd8/pub?output=csv",
+  APPS_SCRIPT: "https://script.google.com/macros/s/AKfycbyvRDWVDYrbmGIVXRGVpmNVZf3t2CdLq5m8Rkl-0ww-6APXbrvOORLXI60HTLmhQpnWpA/exec",
+  COL_AUDIO: "Audio de Soledad",
+  // Columnas que NO son documentos (las primeras cinco, fijas)
+  COL_ANIO: "Año", COL_TITULO: "Título", COL_MEDIO: "Medio",
+  COL_ELENCO: "Elenco", COL_ROL: "Rol / Observación",
+  // Columnas a ignorar por completo (fórmulas rotas, auxiliares)
+  IGNORAR: ["URL PARA EL BUSCADOR"],
+  MAX_SEG: 300              // duración máxima de una grabación, en segundos
+};
+
+const CACHE_KEY = "archivo_soledad_v1";
+
+/* ==========================================================================
+   Utilidades
+   ========================================================================== */
+const $ = s => document.querySelector(s);
+const esc = s => (s==null?"":String(s))
+  .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+
+/* Normalización amplia: sin tildes, sin mayúsculas, sin puntuación. */
+function norm(s){
+  return (s==null?"":String(s))
+    .toLowerCase()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g,"")     // tildes y diéresis
+    .replace(/[\u2018\u2019\u201c\u201d]/g,"")          // comillas tipográficas
+    .replace(/[^a-z0-9ñ]+/g," ")                        // puntos, comas, guiones, paréntesis…
+    .replace(/\s+/g," ").trim();
+}
+const vacio = v => {
+  const t = (v==null?"":String(v)).trim();
+  return !t || /^#(REF|N\/A|VALUE|NAME|DIV\/0|NULL)!?$/i.test(t) || t==="#REF!";
+};
+
+function parseCSV(texto){
+  const filas=[]; let campo="",fila=[],dentro=false;
+  texto = texto.replace(/^﻿/,"");
+  for(let i=0;i<texto.length;i++){
+    const c=texto[i];
+    if(dentro){
+      if(c==='"'){ if(texto[i+1]==='"'){campo+='"';i++;} else dentro=false; }
+      else campo+=c;
+    } else if(c==='"') dentro=true;
+    else if(c===","){ fila.push(campo); campo=""; }
+    else if(c==="\n"){ fila.push(campo); filas.push(fila); fila=[]; campo=""; }
+    else if(c!=="\r") campo+=c;
+  }
+  if(campo!==""||fila.length){ fila.push(campo); filas.push(fila); }
+  if(!filas.length) return {cab:[],filas:[]};
+  const cab=filas.shift().map(h=>h.trim());
+  const datos=filas.map((f,i)=>{
+    const o={__fila:i+2};                 // fila real en el Sheet (1 = encabezado)
+    cab.forEach((h,j)=>o[h]=(f[j]||"").trim());
+    return o;
+  }).filter(o=>Object.keys(o).some(k=>k!=="__fila" && !vacio(o[k])));
+  return {cab,filas:datos};
+}
+
+/* ==========================================================================
+   Interpretación de las filas
+   ========================================================================== */
+let CABECERAS=[], REGISTROS=[], MEDIOS=[];
+
+const RE_URL=/https?:\/\/[^\s,|;"'<>]+/gi;
+function urlsDe(txt){ return (String(txt).match(RE_URL)||[]).map(u=>u.replace(/[).,;]+$/,"")); }
+function idDrive(u){
+  const m=u.match(/\/d\/([A-Za-z0-9_-]{20,})/)||u.match(/[?&]id=([A-Za-z0-9_-]{20,})/);
+  return m?m[1]:null;
+}
+function dominio(u){ try{ return new URL(u).hostname.replace(/^www\./,""); }catch(e){ return "enlace"; } }
+function tipoPorExt(u){
+  const p=u.split("?")[0].toLowerCase();
+  if(/\.(jpe?g|png|gif|webp|avif|bmp)$/.test(p)) return "imagen";
+  if(/\.(mp4|m4v|webm|mov|ogv)$/.test(p))        return "video";
+  if(/\.(mp3|wav|m4a|ogg|oga|aac)$/.test(p))     return "audio";
+  if(/\.pdf$/.test(p))                            return "pdf";
+  return null;
+}
+function docDe(url,rotulo){
+  const id=idDrive(url);
+  return { url, rotulo, drive:id, tipo:tipoPorExt(url)||(id?"drive":"externo"), dominio:dominio(url) };
+}
+
+function preparar(cab,filas){
+  const fijas=[CONFIG.COL_ANIO,CONFIG.COL_TITULO,CONFIG.COL_MEDIO,CONFIG.COL_ELENCO,CONFIG.COL_ROL];
+  const extras=cab.filter(h=>h && !fijas.includes(h) && !CONFIG.IGNORAR.includes(h));
+  const usadas=new Set();
+
+  return filas.map((r,i)=>{
+    const titulo=(r[CONFIG.COL_TITULO]||"").trim();
+    if(!titulo) return null;
+    const anio=(r[CONFIG.COL_ANIO]||"").trim();
+    const medio=(r[CONFIG.COL_MEDIO]||"").trim()||"Otros";
+
+    // Documentos: todas las URLs de las columnas extra, más la columna auxiliar
+    const docs=[]; const secciones=[]; const pendientes=[];
+    const agregar=(u,rot)=>{
+      if(docs.some(d=>d.url===u)) return;
+      docs.push(docDe(u,rot));
+    };
+    extras.forEach(h=>{
+      const v=r[h]; if(vacio(v)) return;
+      if(h===CONFIG.COL_AUDIO) return;                 // el audio se trata aparte
+      const us=urlsDe(v);
+      if(us.length) us.forEach(u=>agregar(u,h));
+      else if(/\.(png|jpe?g|gif|webp|pdf|mp4|m4v|wav|mp3)$/i.test(v.trim())) pendientes.push(v.trim());
+      else if(v.trim().length>2) secciones.push({rotulo:h,texto:v.trim()});
+    });
+    // La columna auxiliar suele traer resuelto el link de la gráfica
+    CONFIG.IGNORAR.forEach(h=>{
+      if(!(h in r)||vacio(r[h])) return;
+      urlsDe(r[h]).forEach(u=>agregar(u,"Gráfica relacionada"));
+    });
+
+    const audioURL=(!vacio(r[CONFIG.COL_AUDIO]) ? (urlsDe(r[CONFIG.COL_AUDIO])[0]||null) : null);
+
+    let clave=norm(anio+"-"+titulo).replace(/ /g,"-")||("t"+i);
+    let k=clave,n=2; while(usadas.has(k)){k=clave+"-"+n;n++;} usadas.add(k);
+
+    const elenco=vacio(r[CONFIG.COL_ELENCO])?"":r[CONFIG.COL_ELENCO].trim();
+    const rol=vacio(r[CONFIG.COL_ROL])?"":r[CONFIG.COL_ROL].trim();
+
+    return {
+      clave:k, fila:r.__fila, anio, titulo, medio, elenco, rol,
+      docs, secciones, pendientes, audioURL,
+      indice: norm([anio,titulo,medio,elenco,rol,
+                    ...secciones.map(s=>s.texto)].join(" "))
+    };
+  }).filter(Boolean);
+}
+
+/* ==========================================================================
+   Carga de datos: tres métodos + copia guardada en el navegador
+   ========================================================================== */
+const antiCache = u => u+(u.includes("?")?"&":"?")+"_cb="+Date.now();
+const conCorte = (p,ms,q) => Promise.race([p,
+  new Promise((_,rj)=>setTimeout(()=>rj(new Error(q+": tardó demasiado")),ms))]);
+
+async function porTexto(url){
+  const resp=await conCorte(fetch(url,{cache:"no-store"}),15000,"la consulta");
+  if(!resp.ok) throw new Error("HTTP "+resp.status);
+  const texto=await conCorte(resp.text(),15000,"la lectura");
+  if(/<!DOCTYPE|<html/i.test(texto.slice(0,400))) throw new Error("respondió una página web, no datos");
+  const r=parseCSV(texto);
+  if(!r.filas.length) throw new Error("no devolvió filas");
+  return r;
+}
+function deGviz(resp){
+  const t=resp&&resp.table;
+  if(!t||!t.cols) throw new Error("formato inesperado");
+  const cab=t.cols.map((c,i)=>((c.label||c.id||("col"+i))+"").trim());
+  const filas=(t.rows||[]).map((r,i)=>{
+    const o={__fila:i+2};
+    cab.forEach((h,j)=>{
+      const cel=r.c&&r.c[j];
+      o[h]=cel?String(cel.f!=null?cel.f:(cel.v!=null?cel.v:"")).trim():"";
+    });
+    return o;
+  }).filter(o=>Object.keys(o).some(k=>k!=="__fila"&&!vacio(o[k])));
+  if(!filas.length) throw new Error("no devolvió filas");
+  return {cab,filas};
+}
+function porJSONP(){
+  return new Promise((ok,mal)=>{
+    const fn="__sol"+Math.floor(performance.now()*1000);
+    const s=document.createElement("script"); let listo=false;
+    const limpiar=()=>{try{delete window[fn];}catch(_){window[fn]=undefined;} s.remove(); clearTimeout(rel);};
+    const rel=setTimeout(()=>{if(!listo){limpiar();mal(new Error("tardó demasiado"));}},15000);
+    window[fn]=resp=>{listo=true;limpiar();try{ok(deGviz(resp));}catch(e){mal(e);}};
+    s.onerror=()=>{if(!listo){limpiar();mal(new Error("no respondió"));}};
+    s.src=antiCache(`https://docs.google.com/spreadsheets/d/${CONFIG.SHEET_ID}/gviz/tq`
+      +`?tqx=out:json;responseHandler:${fn}&headers=1`
+      +(CONFIG.HOJA?`&sheet=${encodeURIComponent(CONFIG.HOJA)}`:""));
+    document.head.appendChild(s);
+  });
+}
+function metodos(){
+  const l=[];
+  if(CONFIG.CSV_PUBLICADO) l.push({n:"CSV publicado",f:()=>porTexto(antiCache(CONFIG.CSV_PUBLICADO))});
+  l.push({n:"CSV directo",f:()=>porTexto(antiCache(
+    `https://docs.google.com/spreadsheets/d/${CONFIG.SHEET_ID}/gviz/tq?tqx=out:csv`
+    +(CONFIG.HOJA?`&sheet=${encodeURIComponent(CONFIG.HOJA)}`:"")))});
+  l.push({n:"lectura compatible",f:porJSONP});
+  return l;
+}
+function reloj(){
+  return new Date().toLocaleTimeString("es-AR",{hour:"2-digit",minute:"2-digit"});
+}
+function estado(clase,html){
+  $("#estado").className="estado "+clase;
+  $("#estadoTxt").innerHTML=html;
+}
+
+async function cargar(manual){
+  estado("aviso","Consultando la planilla…");
+  const fallos=[];
+  for(const m of metodos()){
+    try{
+      const r=await m.f();
+      CABECERAS=r.cab; REGISTROS=preparar(r.cab,r.filas);
+      try{ localStorage.setItem(CACHE_KEY,JSON.stringify({cab:r.cab,filas:r.filas,cuando:Date.now()})); }catch(_){}
+      estado("ok",`Actualizado ${reloj()} · <button type="button" id="btnRefrescar">Actualizar</button>`);
+      $("#pie").textContent="Última actualización: "+reloj();
+      if(fallos.length) console.info("[Archivo] método: "+m.n+" · intentos previos: "+fallos.join(" | "));
+      return terminar();
+    }catch(e){
+      let msg=e.message||String(e);
+      if(/failed to fetch|networkerror|load failed/i.test(msg)) msg="el navegador bloqueó la lectura entre dominios";
+      fallos.push(m.n+" → "+msg);
+    }
+  }
+  // Copia guardada la última vez que sí se pudo leer
+  try{
+    const g=JSON.parse(localStorage.getItem(CACHE_KEY)||"null");
+    if(g&&g.filas&&g.filas.length){
+      CABECERAS=g.cab; REGISTROS=preparar(g.cab,g.filas);
+      const f=new Date(g.cuando).toLocaleString("es-AR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"});
+      estado("aviso",`No se pudo leer la planilla. Se muestra la última copia guardada en este navegador (${f}). `
+        +`<button type="button" id="btnRefrescar">Reintentar</button>`);
+      $("#pie").textContent="Copia guardada del "+f;
+      console.warn("[Archivo] fallaron todos los métodos:\n"+fallos.join("\n"));
+      return terminar();
+    }
+  }catch(_){}
+  REGISTROS=[];
+  estado("error","No se pudo leer la planilla y no hay ninguna copia guardada en este navegador. "
+    +"Detalle: "+esc(fallos.join(" | "))+" <button type=\"button\" id=\"btnRefrescar\">Reintentar</button>");
+  terminar();
+}
+function terminar(){
+  armarMedios(); aplicar(); abrirDeURL();
+  const b=$("#btnRefrescar"); if(b) b.onclick=()=>cargar(true);
+}
+
+/* ==========================================================================
+   Índice, filtros y búsqueda
+   ========================================================================== */
+let medioActivo=null, claveActiva=null, soloConAudio=false;
+
+function armarMedios(){
+  MEDIOS=[...new Set(REGISTROS.map(r=>r.medio))].sort((a,b)=>a.localeCompare(b,"es"));
+  const c=$("#medios"); c.innerHTML="";
+  const mk=(txt,val)=>{
+    const b=document.createElement("button");
+    b.type="button"; b.textContent=txt;
+    b.setAttribute("aria-pressed", medioActivo===val?"true":"false");
+    b.onclick=()=>{ medioActivo=(medioActivo===val?null:val); armarMedios(); aplicar(); };
+    c.appendChild(b);
+  };
+  mk("Todos",null); MEDIOS.forEach(m=>mk(m,m));
+
+  // Filtro aparte: sólo los títulos que ya tienen comentario grabado
+  const fa=$("#filtroAudio"); fa.innerHTML="";
+  const con=REGISTROS.filter(r=>r.audioURL).length;
+  if(con){
+    const b=document.createElement("button");
+    b.type="button"; b.textContent="Con comentario ("+con+")";
+    b.setAttribute("aria-pressed", soloConAudio?"true":"false");
+    b.onclick=()=>{ soloConAudio=!soloConAudio; armarMedios(); aplicar(); };
+    fa.appendChild(b);
+  }
+}
+
+function aplicar(){
+  const q=norm($("#buscar").value);
+  const terminos=q?q.split(" "):[];
+  const res=REGISTROS.filter(r=>{
+    if(medioActivo && r.medio!==medioActivo) return false;
+    if(soloConAudio && !r.audioURL) return false;
+    return terminos.every(t=>r.indice.includes(t));
+  });
+  $("#cuenta").textContent=res.length;
+  $("#cuentaTxt").textContent=res.length===1?"título":"títulos";
+  $("#limpiar").hidden=!$("#buscar").value;
+
+  const ol=$("#lista"); ol.innerHTML="";
+  if(!res.length){
+    ol.innerHTML='<li class="nada">No hay títulos que coincidan con esa búsqueda.</li>';
+    return;
+  }
+  const frag=document.createDocumentFragment();
+  res.forEach(r=>{
+    const li=document.createElement("li");
+    const b=document.createElement("button");
+    b.type="button"; b.dataset.clave=r.clave;
+    b.setAttribute("aria-current", r.clave===claveActiva?"true":"false");
+    const marcas=[];
+    if(r.audioURL) marcas.push('<span class="pip audio">Comentario</span>');
+    if(r.docs.length) marcas.push(`<span class="pip">${r.docs.length} doc${r.docs.length>1?"s":""}</span>`);
+    b.innerHTML=
+      `<span class="li-alto"><span class="li-anio">${esc(r.anio||"—")}</span>`+
+      `<span class="li-medio">${esc(r.medio)}</span></span>`+
+      `<span class="li-titulo">${esc(r.titulo)}</span>`+
+      (marcas.length?`<span class="li-marcas">${marcas.join("")}</span>`:"");
+    b.onclick=()=>mostrar(r.clave,true);
+    li.appendChild(b); frag.appendChild(li);
+  });
+  ol.appendChild(frag);
+}
+
+/* ==========================================================================
+   Ficha y visor
+   ========================================================================== */
+let docActivo=0;
+
+function marcoDoc(d,titulo){
+  const t=esc(titulo);
+  if(d.drive && (d.tipo==="drive"||d.tipo==="pdf"||d.tipo==="video"))
+    return `<div class="marco"><iframe src="https://drive.google.com/file/d/${d.drive}/preview"
+              allow="autoplay; fullscreen" allowfullscreen title="Documento de ${t}"></iframe></div>`;
+  if(d.drive && d.tipo==="imagen")
+    return `<div class="marco"><img src="https://drive.google.com/thumbnail?id=${d.drive}&sz=w1600" alt="${t}"></div>`;
+  if(d.tipo==="imagen")
+    return `<div class="marco"><img src="${esc(d.url)}" alt="${t}"></div>`;
+  if(d.tipo==="video")
+    return `<div class="marco"><video controls preload="metadata" style="position:absolute;inset:0;width:100%;height:100%"
+              src="${esc(d.url)}" title="Video de ${t}"></video></div>`;
+  if(d.tipo==="audio")
+    return `<div style="padding:26px 20px;background:var(--papel-2)">
+              <audio controls preload="metadata" style="width:100%" src="${esc(d.url)}"></audio></div>`;
+  return `<div class="enlace-ext"><p class="dominio">${esc(d.dominio)}</p>
+            <a href="${esc(d.url)}" target="_blank" rel="noopener">Abrir el documento &nearr;</a></div>`;
+}
+
+function pintarVisor(r){
+  const z=$("#zonaVisor"); if(!z) return;
+  const d=r.docs[docActivo];
+  z.innerHTML=d?marcoDoc(d,r.titulo):"";
+  const rot=$("#visorRotulo"); if(rot&&d) rot.textContent=d.rotulo;
+  const pos=$("#visorPos"); if(pos) pos.textContent=(docActivo+1)+" de "+r.docs.length;
+  const ant=$("#visorAnt"), sig=$("#visorSig");
+  if(ant) ant.disabled=docActivo===0;
+  if(sig) sig.disabled=docActivo>=r.docs.length-1;
+  const pie=$("#visorPie");
+  if(pie&&d) pie.innerHTML=`<a href="${esc(d.url)}" target="_blank" rel="noopener">Abrir en una pestaña nueva &nearr;</a>`;
+  document.querySelectorAll("#visorPuntos button").forEach((b,i)=>
+    b.setAttribute("aria-current", i===docActivo?"true":"false"));
+}
+
+function mostrar(clave,irArriba){
+  const r=REGISTROS.find(x=>x.clave===clave); if(!r) return;
+  claveActiva=clave; docActivo=0;
+  history.replaceState(null,"","#"+encodeURIComponent(clave));
+  document.body.classList.add("ver-ficha");
+  document.querySelectorAll("#lista button").forEach(b=>
+    b.setAttribute("aria-current", b.dataset.clave===clave?"true":"false"));
+
+  const varios=r.docs.length>1;
+  const visor = r.docs.length ? `
+    <section class="visor" aria-label="Documentos relacionados">
+      <div class="visor-cab">
+        <span class="rotulo" id="visorRotulo"></span>
+        ${varios?`<span class="paso">
+          <button type="button" id="visorAnt" aria-label="Documento anterior">&larr;</button>
+          <span id="visorPos"></span>
+          <button type="button" id="visorSig" aria-label="Documento siguiente">&rarr;</button>
+        </span>`:""}
+      </div>
+      <div id="zonaVisor"></div>
+      ${varios?`<div class="puntos" id="visorPuntos" role="group" aria-label="Elegir documento">`+
+        r.docs.map((d,i)=>`<button type="button" onclick="irDoc(${i})">${esc(d.rotulo)} ${i+1}</button>`).join("")+
+      `</div>`:""}
+      <div class="visor-pie" id="visorPie"></div>
+    </section>`
+    : `<section class="visor" aria-label="Documentos relacionados">
+         <div class="sin-doc">Todavía no hay documentos cargados para este título.
+         ${r.pendientes.length?`<br><small>Pendiente de subir: ${esc(r.pendientes.join(", "))}</small>`:""}</div>
+       </section>`;
+
+  $("#ficha").innerHTML=`
+    <button type="button" class="volver" onclick="volver()">&larr; Volver al índice</button>
+    <p class="f-medio">${esc(r.medio)}</p>
+    <h2 class="f-titulo">${esc(r.titulo)}</h2>
+    <p class="f-anio">${esc(r.anio||"Sin año")}
+      <button type="button" class="btn-compartir" onclick="compartir(this)">Copiar enlace</button>
+    </p>
+    ${r.rol?`<p class="f-rol"><span class="rotulo">Personaje</span>${esc(r.rol)}</p>`:""}
+    ${visor}
+    <section class="comentario" aria-label="Comentario de Soledad Silveyra">
+      <h3>Comentario de Soledad Silveyra</h3>
+      <div id="zonaAudio"></div>
+      <div id="zonaGrabar"></div>
+      <p class="aviso-grab" id="avisoGrab" role="status" aria-live="polite"></p>
+    </section>
+    ${r.elenco?`<section class="bloque"><h3>Elenco y ficha</h3><p>${esc(r.elenco)}</p></section>`:""}
+    ${r.secciones.map(s=>`<section class="bloque"><h3>${esc(s.rotulo)}</h3><p>${esc(s.texto)}</p></section>`).join("")}
+  `;
+  pintarVisor(r);
+  pintarAudio(r);
+  const a=$("#visorAnt"), s=$("#visorSig");
+  if(a) a.onclick=()=>{ if(docActivo>0){docActivo--;pintarVisor(r);} };
+  if(s) s.onclick=()=>{ if(docActivo<r.docs.length-1){docActivo++;pintarVisor(r);} };
+  if(irArriba) desplazarA($("#ficha"));
+  $("#ficha").focus({preventScroll:true});
+}
+window.irDoc=function(i){ docActivo=i; pintarVisor(REGISTROS.find(x=>x.clave===claveActiva)); };
+window.volver=function(){
+  document.body.classList.remove("ver-ficha");
+  const b=document.querySelector(`#lista button[data-clave="${CSS.escape(claveActiva)}"]`);
+  if(b){ desplazarA(b); b.focus({preventScroll:true}); }
+};
+/* Lleva el elemento justo debajo de la barra fija, cuya altura cambia
+   según el tamaño de pantalla (en celular ocupa mucho más). */
+function desplazarA(el){
+  const barra=document.querySelector(".barra");
+  const alto=barra?barra.getBoundingClientRect().height:0;
+  const y=el.getBoundingClientRect().top+window.scrollY-alto-14;
+  window.scrollTo({top:Math.max(0,y),behavior:"smooth"});
+}
+function abrirDeURL(){
+  const h=decodeURIComponent(location.hash.replace(/^#/,""));
+  if(h&&REGISTROS.some(r=>r.clave===h)) mostrar(h,false);
+}
+
+/* ==========================================================================
+   Comentario de audio: reproducir y grabar
+   ========================================================================== */
+let modoEdicion=false, clave="", grabador=null, trozos=[], blobGrabado=null, cron=null, seg=0;
+
+function urlAudioDirecta(u){
+  const id=idDrive(u);
+  return id?`https://drive.google.com/uc?export=download&id=${id}`:u;
+}
+function pintarAudio(r){
+  const z=$("#zonaAudio");
+  z.innerHTML = r.audioURL
+    ? `<audio controls preload="none" src="${esc(urlAudioDirecta(r.audioURL))}">
+         <a href="${esc(r.audioURL)}" target="_blank" rel="noopener">Escuchar el comentario</a>
+       </audio>
+       <p style="font-size:.78rem;color:var(--tinta-3)">
+         <a href="${esc(r.audioURL)}" target="_blank" rel="noopener" style="color:var(--acento)">Abrir en Drive &nearr;</a></p>`
+    : `<p class="vacio">Todavía no hay un comentario grabado para este título.</p>`;
+  pintarGrabar(r);
+}
+function pintarGrabar(r){
+  const z=$("#zonaGrabar");
+  if(!modoEdicion){ z.innerHTML=""; return; }
+  if(!CONFIG.APPS_SCRIPT){
+    z.innerHTML=`<p class="aviso-grab mal">Falta configurar la dirección del Apps Script en CONFIG.APPS_SCRIPT
+                 para poder guardar los audios.</p>`;
+    return;
+  }
+  z.innerHTML=`
+    <div class="fila-grabar">
+      <button type="button" class="btn rojo" id="btnGrabar"><span class="bolita"></span><span id="txtGrabar">Grabar</span></button>
+      <span class="cronometro" id="cron" hidden>0:00</span>
+      <button type="button" class="btn sec" id="btnGuardar" hidden>Guardar</button>
+      <button type="button" class="btn sec" id="btnDescartar" hidden>Descartar</button>
+      ${r.audioURL?`<button type="button" class="btn sec" id="btnBorrar">Borrar comentario</button>`:""}
+    </div>
+    <div id="previa"></div>`;
+  $("#btnGrabar").onclick=()=>alternarGrabacion(r);
+  $("#btnGuardar").onclick=()=>guardarAudio(r);
+  $("#btnDescartar").onclick=()=>{ blobGrabado=null; $("#previa").innerHTML=""; sincronizarBotones(); };
+  const bb=$("#btnBorrar"); if(bb) bb.onclick=()=>borrarAudio(r);
+  sincronizarBotones();
+}
+function sincronizarBotones(){
+  const g=$("#btnGuardar"), d=$("#btnDescartar");
+  if(g) g.hidden=!blobGrabado;
+  if(d) d.hidden=!blobGrabado;
+}
+function avisar(txt,clase){ const a=$("#avisoGrab"); if(a){ a.textContent=txt; a.className="aviso-grab "+(clase||""); } }
+
+async function alternarGrabacion(r){
+  const btn=$("#btnGrabar"), txt=$("#txtGrabar"), c=$("#cron");
+  if(grabador && grabador.state==="recording"){ grabador.stop(); return; }
+  if(!navigator.mediaDevices||!window.MediaRecorder){
+    avisar("Este navegador no permite grabar audio, o la página se abrió sin servidor (file://).","mal"); return;
+  }
+  try{
+    const stream=await navigator.mediaDevices.getUserMedia({audio:true});
+    trozos=[]; blobGrabado=null; $("#previa").innerHTML=""; sincronizarBotones();
+    grabador=new MediaRecorder(stream);
+    grabador.ondataavailable=e=>{ if(e.data.size) trozos.push(e.data); };
+    grabador.onstop=()=>{
+      clearInterval(cron); c.hidden=true;
+      stream.getTracks().forEach(t=>t.stop());
+      btn.classList.remove("grabando"); txt.textContent="Grabar de nuevo";
+      blobGrabado=new Blob(trozos,{type:grabador.mimeType||"audio/webm"});
+      $("#previa").innerHTML=`<audio controls src="${URL.createObjectURL(blobGrabado)}" style="margin-top:12px;width:100%;max-width:460px"></audio>`;
+      sincronizarBotones();
+      avisar("Escuchá la grabación y guardala si está bien.","");
+    };
+    grabador.start();
+    seg=0; c.hidden=false; c.textContent="0:00";
+    cron=setInterval(()=>{
+      seg++; c.textContent=Math.floor(seg/60)+":"+String(seg%60).padStart(2,"0");
+      if(seg>=CONFIG.MAX_SEG && grabador.state==="recording"){ grabador.stop(); avisar("Se alcanzó el máximo de duración.","");}
+    },1000);
+    btn.classList.add("grabando"); txt.textContent="Detener";
+    avisar("Grabando…","");
+  }catch(e){ avisar("No se pudo acceder al micrófono: "+e.message,"mal"); }
+}
+
+function blobABase64(b){
+  return new Promise((ok,mal)=>{
+    const fr=new FileReader();
+    fr.onloadend=()=>ok(String(fr.result).split(",")[1]);
+    fr.onerror=()=>mal(new Error("no se pudo leer la grabación"));
+    fr.readAsDataURL(b);
+  });
+}
+async function guardarAudio(r){
+  if(!blobGrabado) return;
+  const g=$("#btnGuardar"); g.disabled=true;
+  avisar("Guardando en Drive…","");
+  try{
+    const b64=await blobABase64(blobGrabado);
+    // text/plain evita el pedido previo de permisos, que Apps Script no responde
+    const resp=await conCorte(fetch(CONFIG.APPS_SCRIPT,{
+      method:"POST", headers:{"Content-Type":"text/plain;charset=utf-8"},
+      body:JSON.stringify({
+        clave, fila:r.fila, anio:r.anio, titulo:r.titulo, medio:r.medio,
+        mime:blobGrabado.type||"audio/webm", audio:b64
+      })
+    }),60000,"el guardado");
+    const data=await resp.json();
+    if(!data.ok) throw new Error(data.error||"el servidor rechazó el guardado");
+    r.audioURL=data.url;
+    blobGrabado=null;
+    avisar("Comentario guardado.","bien");
+    pintarAudio(r); aplicar();
+  }catch(e){
+    avisar("No se pudo guardar: "+e.message+". La grabación sigue acá, podés reintentar.","mal");
+  }finally{ if(g) g.disabled=false; }
+}
+
+async function borrarAudio(r){
+  if(!confirm("¿Borrar el comentario grabado de \""+r.titulo+"\"?\n\n"+
+              "El audio va a la papelera de Drive: se puede recuperar por 30 días.")) return;
+  const b=$("#btnBorrar"); if(b) b.disabled=true;
+  avisar("Borrando…","");
+  try{
+    const resp=await conCorte(fetch(CONFIG.APPS_SCRIPT,{
+      method:"POST", headers:{"Content-Type":"text/plain;charset=utf-8"},
+      body:JSON.stringify({
+        clave, accion:"borrar",
+        fila:r.fila, anio:r.anio, titulo:r.titulo, medio:r.medio
+      })
+    }),30000,"el borrado");
+    const data=await resp.json();
+    if(!data.ok) throw new Error(data.error||"el servidor rechazó el borrado");
+    r.audioURL=null;
+    avisar("Comentario borrado.","bien");
+    pintarAudio(r); armarMedios(); aplicar();
+  }catch(e){
+    avisar("No se pudo borrar: "+e.message,"mal");
+    if(b) b.disabled=false;
+  }
+}
+
+window.compartir=function(b){
+  const url=location.href, t=b.textContent;
+  const listo=()=>{ b.textContent="¡Copiado!"; setTimeout(()=>{b.textContent=t;},1800); };
+  if(navigator.clipboard) navigator.clipboard.writeText(url).then(listo).catch(()=>prompt("Copiá el enlace:",url));
+  else prompt("Copiá el enlace:",url);
+};
+
+/* ==========================================================================
+   Modo edición
+   ========================================================================== */
+/* El botón de edición no tiene sentido sin un Apps Script donde guardar:
+   si no está configurado, no se muestra. */
+window.actualizarModoEdicion=function(){
+  $("#btnModo").hidden = !CONFIG.APPS_SCRIPT;
+};
+actualizarModoEdicion();
+
+$("#btnModo").onclick=()=>{
+  if(modoEdicion){
+    modoEdicion=false; clave="";
+    $("#btnModo").textContent="Modo edición";
+    avisar("");
+    if(claveActiva) pintarAudio(REGISTROS.find(x=>x.clave===claveActiva));
+    return;
+  }
+  const d=$("#dlgClave"); $("#claveInp").value=""; d.showModal();
+};
+$("#dlgClave").addEventListener("close",()=>{
+  if($("#dlgClave").returnValue!=="ok") return;
+  const v=$("#claveInp").value.trim();
+  if(!v) return;
+  clave=v; modoEdicion=true;
+  $("#btnModo").textContent="Salir de edición";
+  if(claveActiva) pintarAudio(REGISTROS.find(x=>x.clave===claveActiva));
+  avisar("Modo edición activo. La clave se comprueba al guardar.","");
+});
+
+/* ==========================================================================
+   Eventos
+   ========================================================================== */
+let temp;
+$("#buscar").addEventListener("input",()=>{clearTimeout(temp);temp=setTimeout(aplicar,130);});
+$("#limpiar").addEventListener("click",()=>{$("#buscar").value="";aplicar();$("#buscar").focus();});
+window.addEventListener("hashchange",abrirDeURL);
+document.addEventListener("keydown",e=>{
+  if(e.key==="/"&&document.activeElement!==$("#buscar")&&!/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)){
+    e.preventDefault(); $("#buscar").focus();
+  }
+  if(e.key==="Escape"&&document.activeElement===$("#buscar")){ $("#buscar").value=""; aplicar(); }
+  if(!claveActiva) return;
+  const r=REGISTROS.find(x=>x.clave===claveActiva); if(!r||r.docs.length<2) return;
+  if(e.key==="ArrowRight"&&docActivo<r.docs.length-1){docActivo++;pintarVisor(r);}
+  if(e.key==="ArrowLeft"&&docActivo>0){docActivo--;pintarVisor(r);}
+});
+$("#lista").addEventListener("keydown",e=>{
+  if(e.key!=="ArrowDown"&&e.key!=="ArrowUp") return;
+  const bs=[...document.querySelectorAll("#lista button")];
+  const i=bs.indexOf(document.activeElement); if(i<0) return;
+  e.preventDefault();
+  bs[e.key==="ArrowDown"?Math.min(i+1,bs.length-1):Math.max(i-1,0)].focus();
+});
+
+cargar(false);
+</script>
+</body>
+</html>
