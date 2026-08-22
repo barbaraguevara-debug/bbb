@@ -70,7 +70,7 @@ button{font:inherit;color:inherit}
   letter-spacing:.16em;text-transform:uppercase;text-align:center;
   white-space:nowrap;
 }
-.marca-sub{color:var(--tinta-3);font-size:.62em;letter-spacing:.14em}
+.marca-sub{letter-spacing:.16em}
 @media (max-width:640px){
   .marca{white-space:normal;font-size:1.4rem}
   .marca-sub{display:block;margin-top:2px}
@@ -130,15 +130,24 @@ button{font:inherit;color:inherit}
   text-transform:uppercase;color:var(--tinta-3);margin-bottom:6px;
 }
 .campo .caja{position:relative}
+.campo .caja::before{
+  content:"";position:absolute;left:14px;top:50%;transform:translateY(-50%);
+  width:18px;height:18px;pointer-events:none;opacity:.55;
+  background:no-repeat center/contain
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237A2E2E' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
+}
 .campo input{
-  width:100%;background:transparent;border:none;border-bottom:1.5px solid var(--tinta-2);
-  font-family:var(--serif);font-size:1.35rem;color:var(--tinta);
-  padding:4px 34px 7px 0;
+  width:100%;background:var(--papel);border:1.5px solid var(--linea);border-radius:6px;
+  font-family:var(--serif);font-size:1.25rem;color:var(--tinta);
+  padding:11px 40px 11px 42px;transition:border-color .15s,box-shadow .15s;
 }
 .campo input::placeholder{color:var(--tinta-3);font-style:italic}
-.campo input:focus{border-bottom-color:var(--acento);outline-offset:4px}
+.campo input:focus{
+  border-color:var(--acento);outline-offset:2px;
+  box-shadow:0 0 0 3px var(--acento-cl);
+}
 .campo .limpiar{
-  position:absolute;right:0;bottom:6px;background:none;border:none;cursor:pointer;
+  position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;
   color:var(--tinta-3);font-size:1.4rem;line-height:1;padding:2px 6px;
 }
 .campo .limpiar:hover{color:var(--tinta)}
@@ -185,12 +194,12 @@ ol.lista button[aria-current="true"]{background:var(--acento-cl);border-left-col
 .li-alto{display:flex;gap:10px;align-items:baseline;margin-bottom:2px}
 .li-num{
   font-family:var(--sans);font-size:.72rem;font-weight:600;color:var(--tinta-3);
-  min-width:2.4em;text-align:right;font-variant-numeric:tabular-nums;
+  font-variant-numeric:tabular-nums;
 }
-.li-anio{font-family:var(--serif);font-size:1.05rem;color:var(--acento);font-weight:600;min-width:2.9em}
+.li-anio{font-family:var(--serif);font-size:1.05rem;color:var(--acento);font-weight:600}
 .li-medio{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--tinta-3);font-weight:600}
-.li-titulo{font-family:var(--serif);font-size:1.28rem;line-height:1.25;color:var(--tinta);padding-left:calc(2.4em + 2.9em + 20px)}
-.li-marcas{padding-left:calc(2.4em + 2.9em + 20px);margin-top:5px;display:flex;gap:7px;flex-wrap:wrap}
+.li-titulo{font-family:var(--serif);font-size:1.28rem;line-height:1.25;color:var(--tinta);display:block}
+.li-marcas{margin-top:5px;display:flex;gap:7px;flex-wrap:wrap}
 .pip{
   font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;
   padding:2px 7px;border-radius:2px;background:var(--papel-3);color:var(--tinta-2);
@@ -201,7 +210,13 @@ ol.lista button[aria-current="true"]{background:var(--acento-cl);border-left-col
 .ficha{flex:1;min-width:0;padding:38px 54px 90px;max-width:900px;scroll-margin-top:104px}
 .indice{scroll-margin-top:104px}
 .volver{display:none}
-.f-medio{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--tinta-3);font-weight:600;margin-bottom:10px}
+.f-cabecera{
+  position:sticky;top:var(--alto-barra,64px);z-index:30;
+  background:var(--papel);
+  padding:14px 0 12px;margin-bottom:6px;
+  border-bottom:1px solid var(--linea);
+}
+.f-medio{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--tinta-3);font-weight:600;margin-bottom:6px}
 .f-titulo{font-family:var(--serif);font-size:clamp(2rem,4.4vw,3.1rem);font-weight:400;line-height:1.08;margin-bottom:8px}
 .f-anio{
   font-family:var(--serif);font-style:italic;font-size:1.45rem;color:var(--acento);
@@ -357,9 +372,9 @@ dialog .fila{display:flex;gap:10px;justify-content:flex-end}
   .marca{font-size:1.4rem;letter-spacing:.12em}
   .nav-sup .grupo{display:none}
   .marco{aspect-ratio:4/3}
+  .f-cabecera{position:static;border-bottom:none;padding:0;margin-bottom:0}
 }
 @media (max-width:520px){
-  .li-titulo,.li-marcas{padding-left:calc(2.4em + 8px)}
   .li-alto{margin-bottom:4px}
 }
 @media print{
@@ -375,15 +390,6 @@ dialog .fila{display:flex;gap:10px;justify-content:flex-end}
   <div class="marca">Soledad Silveyra <span class="marca-sub">— Archivo Audiovisual</span></div>
   <button type="button" class="enlace" id="btnModo" hidden>Modo edición</button>
 </header>
-
-<div class="bajada">
-  <p><span class="capital">S</span>oledad Silveyra construyó a lo largo de seis décadas una de las trayectorias
-     más extensas de la escena argentina. Del teleteatro de los años sesenta al cine de autor,
-     del teatro clásico a la conducción televisiva, su recorrido atraviesa la historia cultural del país.</p>
-  <p>Este archivo reúne su filmografía, sus obras de teatro y sus trabajos en televisión,
-     junto al material gráfico y documental asociado a cada título. Se actualiza de forma
-     permanente a medida que se incorpora nueva documentación.</p>
-</div>
 
 <main class="archivo" id="archivo">
   <p class="estado ok" id="estado" role="status" aria-live="polite">
@@ -684,6 +690,7 @@ async function cargar(manual){
 }
 function terminar(){
   armarMedios(); aplicar(); abrirDeURL();
+  medirBarra();
   const b=$("#btnRefrescar"); if(b) b.onclick=()=>cargar(true);
 }
 
@@ -744,7 +751,7 @@ function aplicar(){
     if(na) marcas.push(`<span class="pip audio">${na} comentario${na>1?"s":""}</span>`);
     if(r.docs.length) marcas.push(`<span class="pip">${r.docs.length} doc${r.docs.length>1?"s":""}</span>`);
     b.innerHTML=
-      `<span class="li-alto"><span class="li-num">${r.num}</span>`+
+      `<span class="li-alto"><span class="li-num">${r.num} –</span>`+
       `<span class="li-anio">${esc(r.anio||"—")}</span>`+
       `<span class="li-medio">${esc(r.medio)}</span></span>`+
       `<span class="li-titulo">${esc(r.titulo)}</span>`+
@@ -846,8 +853,10 @@ function mostrar(clave,irArriba){
 
   $("#ficha").innerHTML=`
     <button type="button" class="volver" onclick="volver()">&larr; Volver al índice</button>
-    <p class="f-medio">${esc(r.medio)}</p>
-    <h2 class="f-titulo"><span class="f-num">${r.num}.</span> ${esc(r.titulo)}</h2>
+    <div class="f-cabecera">
+      <p class="f-medio">${esc(r.medio)}</p>
+      <h2 class="f-titulo"><span class="f-num">${r.num} –</span> ${esc(r.titulo)}</h2>
+    </div>
     <p class="f-anio">${esc(r.anio||"Sin año")}
       <button type="button" class="btn-compartir" onclick="compartir(this)">Copiar enlace</button>
     </p>
@@ -875,6 +884,17 @@ window.volver=function(){
   const b=document.querySelector(`#lista button[data-clave="${CSS.escape(claveActiva)}"]`);
   if(b){ desplazarA(b); b.focus({preventScroll:true}); }
 };
+/* Mide la barra de búsqueda fija y expone su alto como variable CSS,
+   para que la cabecera de la ficha se pegue justo debajo (incluye iPad). */
+function medirBarra(){
+  const barra=document.querySelector(".barra");
+  const alto=barra?Math.round(barra.getBoundingClientRect().height):64;
+  document.documentElement.style.setProperty("--alto-barra",alto+"px");
+}
+window.addEventListener("resize",medirBarra);
+window.addEventListener("load",medirBarra);
+medirBarra();
+
 /* Lleva el elemento justo debajo de la barra fija, cuya altura cambia
    según el tamaño de pantalla (en celular ocupa mucho más). */
 function desplazarA(el){
