@@ -70,6 +70,11 @@ button{font:inherit;color:inherit}
   letter-spacing:.16em;text-transform:uppercase;text-align:center;
   white-space:nowrap;
 }
+.marca-sub{color:var(--tinta-3);font-size:.62em;letter-spacing:.14em}
+@media (max-width:640px){
+  .marca{white-space:normal;font-size:1.4rem}
+  .marca-sub{display:block;margin-top:2px}
+}
 .portada{position:relative;background:var(--papel-2);overflow:hidden}
 .portada::after{content:"";position:absolute;left:0;right:0;bottom:0;height:90px;
   background:linear-gradient(to bottom,rgba(247,244,238,0),var(--papel));pointer-events:none}
@@ -177,11 +182,15 @@ ol.lista button{
 }
 ol.lista button:hover{background:var(--papel-2)}
 ol.lista button[aria-current="true"]{background:var(--acento-cl);border-left-color:var(--acento)}
-.li-alto{display:flex;gap:12px;align-items:baseline;margin-bottom:2px}
+.li-alto{display:flex;gap:10px;align-items:baseline;margin-bottom:2px}
+.li-num{
+  font-family:var(--sans);font-size:.72rem;font-weight:600;color:var(--tinta-3);
+  min-width:2.4em;text-align:right;font-variant-numeric:tabular-nums;
+}
 .li-anio{font-family:var(--serif);font-size:1.05rem;color:var(--acento);font-weight:600;min-width:2.9em}
 .li-medio{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--tinta-3);font-weight:600}
-.li-titulo{font-family:var(--serif);font-size:1.28rem;line-height:1.25;color:var(--tinta);padding-left:calc(2.9em + 12px)}
-.li-marcas{padding-left:calc(2.9em + 12px);margin-top:5px;display:flex;gap:7px;flex-wrap:wrap}
+.li-titulo{font-family:var(--serif);font-size:1.28rem;line-height:1.25;color:var(--tinta);padding-left:calc(2.4em + 2.9em + 20px)}
+.li-marcas{padding-left:calc(2.4em + 2.9em + 20px);margin-top:5px;display:flex;gap:7px;flex-wrap:wrap}
 .pip{
   font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;
   padding:2px 7px;border-radius:2px;background:var(--papel-3);color:var(--tinta-2);
@@ -220,6 +229,9 @@ ol.lista button[aria-current="true"]{background:var(--acento-cl);border-left-col
   color:var(--tinta-3);padding-bottom:8px;border-bottom:1px solid var(--linea);margin-bottom:14px;
 }
 .bloque p{font-family:var(--serif);font-size:1.16rem;line-height:1.66;color:var(--tinta-2)}
+.bloque p + p{margin-top:8px}
+.f-num{color:var(--tinta-3);font-weight:400}
+a.enlace-sec{color:var(--acento);text-decoration:underline;text-underline-offset:3px;word-break:break-word}
 
 /* ---- Visor / carrusel ---- */
 .visor{border:1px solid var(--linea);background:var(--papel-2);margin-bottom:34px}
@@ -266,8 +278,16 @@ ol.lista button[aria-current="true"]{background:var(--acento-cl);border-left-col
   font-size:.68rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
   color:var(--tinta-3);margin-bottom:14px;
 }
-.comentario audio{width:100%;max-width:460px;margin-bottom:12px}
-.comentario .vacio{font-family:var(--serif);font-style:italic;color:var(--tinta-3);font-size:1.08rem}
+.comentario audio{width:100%;max-width:460px;margin-bottom:8px}
+.comentario .vacio{font-family:var(--serif);font-style:italic;color:var(--tinta-3);font-size:1.05rem}
+.slot-audio{padding:16px 0;border-top:1px solid var(--linea)}
+.slot-audio:first-child{border-top:none;padding-top:4px}
+.slot-cab{margin-bottom:8px}
+.slot-num{font-size:.64rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--acento)}
+.slot-repro{width:100%;max-width:460px;height:60px;margin-bottom:6px}
+.slot-repro iframe{width:100%;height:100%;border:0;border-radius:2px;background:var(--papel-3)}
+.slot-link{font-size:.74rem}
+.slot-link a{color:var(--acento);text-decoration:underline;text-underline-offset:2px}
 .fila-grabar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:12px}
 .btn{
   background:var(--tinta);color:var(--papel);border:1.5px solid var(--tinta);
@@ -339,7 +359,7 @@ dialog .fila{display:flex;gap:10px;justify-content:flex-end}
   .marco{aspect-ratio:4/3}
 }
 @media (max-width:520px){
-  .li-titulo,.li-marcas{padding-left:0}
+  .li-titulo,.li-marcas{padding-left:calc(2.4em + 8px)}
   .li-alto{margin-bottom:4px}
 }
 @media print{
@@ -352,17 +372,9 @@ dialog .fila{display:flex;gap:10px;justify-content:flex-end}
 <a class="salto" href="#buscar">Ir al buscador</a>
 
 <header class="nav-sup">
-  <div class="marca">Soledad Silveyra</div>
+  <div class="marca">Soledad Silveyra <span class="marca-sub">— Archivo Audiovisual</span></div>
   <button type="button" class="enlace" id="btnModo" hidden>Modo edición</button>
 </header>
-
-<div class="portada">
-  <img class="foto" id="fotoPortada" src="soledad.jpg" alt="Retrato de Soledad Silveyra"
-       onerror="this.remove();document.getElementById('sinFoto').hidden=false">
-  <div class="sin-foto" id="sinFoto" hidden>
-    Falta la foto de portada.<br>Subí un archivo llamado <b>soledad.jpg</b> junto a esta página.
-  </div>
-</div>
 
 <div class="bajada">
   <p><span class="capital">S</span>oledad Silveyra construyó a lo largo de seis décadas una de las trayectorias
@@ -435,12 +447,16 @@ const CONFIG = {
   HOJA: "",                 // vacío = primera hoja
   CSV_PUBLICADO: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQXxB-DtnCyO-vN0Pjd4hrtbDO6Xgzee0U1dQqQQuRLwetvKlfYCIiGT4kF1CApRAzDRa01hF9wXYd8/pub?output=csv",
   APPS_SCRIPT: "https://script.google.com/macros/s/AKfycbyvRDWVDYrbmGIVXRGVpmNVZf3t2CdLq5m8Rkl-0ww-6APXbrvOORLXI60HTLmhQpnWpA/exec",
-  COL_AUDIO: "Audio de Soledad",
-  // Columnas que NO son documentos (las primeras cinco, fijas)
+  // Columnas fijas de la ficha
   COL_ANIO: "Año", COL_TITULO: "Título", COL_MEDIO: "Medio",
-  COL_ELENCO: "Elenco", COL_ROL: "Rol / Observación",
-  // Columnas a ignorar por completo (fórmulas rotas, auxiliares)
-  IGNORAR: ["URL PARA EL BUSCADOR"],
+  COL_ELENCO: "Elenco", COL_ROL: "Personaje",
+  // El carrusel toma SÓLO estas columnas, en este orden
+  COL_CARRUSEL: ["Carrousel 1","Carrousel 2","Carrousel 3","Carrousel 4","Carrousel 5"],
+  // Secciones de texto/enlace debajo de la ficha, en este orden
+  COL_SECCIONES: ["Objetos relacionados","Vida privada","Contexto histórico"],
+  // Los tres audios grabables de Soledad
+  COL_AUDIOS: ["Audio 1","Audio 2","Audio 3"],
+  MAX_AUDIOS: 3,
   MAX_SEG: 300              // duración máxima de una grabación, en segundos
 };
 
@@ -517,37 +533,40 @@ function docDe(url,rotulo){
 }
 
 function preparar(cab,filas){
-  const fijas=[CONFIG.COL_ANIO,CONFIG.COL_TITULO,CONFIG.COL_MEDIO,CONFIG.COL_ELENCO,CONFIG.COL_ROL];
-  const extras=cab.filter(h=>h && !fijas.includes(h) && !CONFIG.IGNORAR.includes(h));
   const usadas=new Set();
+  let numero=0;
 
   return filas.map((r,i)=>{
     const titulo=(r[CONFIG.COL_TITULO]||"").trim();
     if(!titulo) return null;
+    numero++;                                     // numeración fija, orden del Sheet
     const anio=(r[CONFIG.COL_ANIO]||"").trim();
     const medio=(r[CONFIG.COL_MEDIO]||"").trim()||"Otros";
 
-    // Documentos: todas las URLs de las columnas extra, más la columna auxiliar
-    const docs=[]; const secciones=[]; const pendientes=[];
-    const agregar=(u,rot)=>{
-      if(docs.some(d=>d.url===u)) return;
-      docs.push(docDe(u,rot));
-    };
-    extras.forEach(h=>{
+    // --- Carrusel: SÓLO las columnas "Carrousel N", en orden ---
+    const docs=[]; const pendientes=[];
+    const agregar=(u,rot)=>{ if(!docs.some(d=>d.url===u)) docs.push(docDe(u,rot)); };
+    CONFIG.COL_CARRUSEL.forEach(h=>{
       const v=r[h]; if(vacio(v)) return;
-      if(h===CONFIG.COL_AUDIO) return;                 // el audio se trata aparte
       const us=urlsDe(v);
       if(us.length) us.forEach(u=>agregar(u,h));
       else if(/\.(png|jpe?g|gif|webp|pdf|mp4|m4v|wav|mp3)$/i.test(v.trim())) pendientes.push(v.trim());
-      else if(v.trim().length>2) secciones.push({rotulo:h,texto:v.trim()});
-    });
-    // La columna auxiliar suele traer resuelto el link de la gráfica
-    CONFIG.IGNORAR.forEach(h=>{
-      if(!(h in r)||vacio(r[h])) return;
-      urlsDe(r[h]).forEach(u=>agregar(u,"Gráfica relacionada"));
     });
 
-    const audioURL=(!vacio(r[CONFIG.COL_AUDIO]) ? (urlsDe(r[CONFIG.COL_AUDIO])[0]||null) : null);
+    // --- Secciones de texto/enlace, sólo si hay contenido ---
+    const secciones=[];
+    CONFIG.COL_SECCIONES.forEach(h=>{
+      const v=r[h]; if(vacio(v)) return;
+      const t=v.trim();
+      const us=urlsDe(t);
+      secciones.push({ rotulo:h, texto:t, enlaces:us });   // enlaces: [] si es texto puro
+    });
+
+    // --- Audios: uno por columna (Audio 1/2/3) ---
+    const audios=CONFIG.COL_AUDIOS.map(h=>{
+      if(vacio(r[h])) return null;
+      return urlsDe(r[h])[0]||null;
+    });                                            // p.ej. [url, null, url]
 
     let clave=norm(anio+"-"+titulo).replace(/ /g,"-")||("t"+i);
     let k=clave,n=2; while(usadas.has(k)){k=clave+"-"+n;n++;} usadas.add(k);
@@ -556,8 +575,9 @@ function preparar(cab,filas){
     const rol=vacio(r[CONFIG.COL_ROL])?"":r[CONFIG.COL_ROL].trim();
 
     return {
-      clave:k, fila:r.__fila, anio, titulo, medio, elenco, rol,
-      docs, secciones, pendientes, audioURL,
+      clave:k, num:numero, fila:r.__fila, anio, titulo, medio, elenco, rol,
+      docs, secciones, pendientes, audios,
+      get tieneAudio(){ return this.audios.some(Boolean); },
       indice: norm([anio,titulo,medio,elenco,rol,
                     ...secciones.map(s=>s.texto)].join(" "))
     };
@@ -686,7 +706,7 @@ function armarMedios(){
 
   // Filtro aparte: sólo los títulos que ya tienen comentario grabado
   const fa=$("#filtroAudio"); fa.innerHTML="";
-  const con=REGISTROS.filter(r=>r.audioURL).length;
+  const con=REGISTROS.filter(r=>r.tieneAudio).length;
   if(con){
     const b=document.createElement("button");
     b.type="button"; b.textContent="Con comentario ("+con+")";
@@ -701,7 +721,7 @@ function aplicar(){
   const terminos=q?q.split(" "):[];
   const res=REGISTROS.filter(r=>{
     if(medioActivo && r.medio!==medioActivo) return false;
-    if(soloConAudio && !r.audioURL) return false;
+    if(soloConAudio && !r.tieneAudio) return false;
     return terminos.every(t=>r.indice.includes(t));
   });
   $("#cuenta").textContent=res.length;
@@ -720,10 +740,12 @@ function aplicar(){
     b.type="button"; b.dataset.clave=r.clave;
     b.setAttribute("aria-current", r.clave===claveActiva?"true":"false");
     const marcas=[];
-    if(r.audioURL) marcas.push('<span class="pip audio">Comentario</span>');
+    const na=r.audios.filter(Boolean).length;
+    if(na) marcas.push(`<span class="pip audio">${na} comentario${na>1?"s":""}</span>`);
     if(r.docs.length) marcas.push(`<span class="pip">${r.docs.length} doc${r.docs.length>1?"s":""}</span>`);
     b.innerHTML=
-      `<span class="li-alto"><span class="li-anio">${esc(r.anio||"—")}</span>`+
+      `<span class="li-alto"><span class="li-num">${r.num}</span>`+
+      `<span class="li-anio">${esc(r.anio||"—")}</span>`+
       `<span class="li-medio">${esc(r.medio)}</span></span>`+
       `<span class="li-titulo">${esc(r.titulo)}</span>`+
       (marcas.length?`<span class="li-marcas">${marcas.join("")}</span>`:"");
@@ -755,6 +777,26 @@ function marcoDoc(d,titulo){
               <audio controls preload="metadata" style="width:100%" src="${esc(d.url)}"></audio></div>`;
   return `<div class="enlace-ext"><p class="dominio">${esc(d.dominio)}</p>
             <a href="${esc(d.url)}" target="_blank" rel="noopener">Abrir el documento &nearr;</a></div>`;
+}
+
+/* Una sección puede ser texto, un enlace, o texto con enlaces adentro. */
+function pintarSeccion(s){
+  if(s.enlaces && s.enlaces.length){
+    // Si es sólo un enlace (o varios) sin más texto alrededor, mostrar enlaces
+    const soloLinks = norm(s.texto.replace(RE_URL,"")).length===0;
+    if(soloLinks){
+      return s.enlaces.map(u=>
+        `<p><a class="enlace-sec" href="${esc(u)}" target="_blank" rel="noopener">${esc(dominio(u))} &nearr;</a></p>`
+      ).join("");
+    }
+    // Texto que contiene enlaces: los volvemos clickeables in situ
+    let html=esc(s.texto);
+    s.enlaces.forEach(u=>{
+      html=html.replace(esc(u),`<a class="enlace-sec" href="${esc(u)}" target="_blank" rel="noopener">${esc(u)}</a>`);
+    });
+    return `<p>${html}</p>`;
+  }
+  return `<p>${esc(s.texto)}</p>`;
 }
 
 function pintarVisor(r){
@@ -805,20 +847,19 @@ function mostrar(clave,irArriba){
   $("#ficha").innerHTML=`
     <button type="button" class="volver" onclick="volver()">&larr; Volver al índice</button>
     <p class="f-medio">${esc(r.medio)}</p>
-    <h2 class="f-titulo">${esc(r.titulo)}</h2>
+    <h2 class="f-titulo"><span class="f-num">${r.num}.</span> ${esc(r.titulo)}</h2>
     <p class="f-anio">${esc(r.anio||"Sin año")}
       <button type="button" class="btn-compartir" onclick="compartir(this)">Copiar enlace</button>
     </p>
     ${r.rol?`<p class="f-rol"><span class="rotulo">Personaje</span>${esc(r.rol)}</p>`:""}
     ${visor}
-    <section class="comentario" aria-label="Comentario de Soledad Silveyra">
-      <h3>Comentario de Soledad Silveyra</h3>
-      <div id="zonaAudio"></div>
-      <div id="zonaGrabar"></div>
+    <section class="comentario" aria-label="Comentarios de Soledad Silveyra">
+      <h3>Comentarios de Soledad Silveyra</h3>
+      <div id="zonaAudios"></div>
       <p class="aviso-grab" id="avisoGrab" role="status" aria-live="polite"></p>
     </section>
     ${r.elenco?`<section class="bloque"><h3>Elenco y ficha</h3><p>${esc(r.elenco)}</p></section>`:""}
-    ${r.secciones.map(s=>`<section class="bloque"><h3>${esc(s.rotulo)}</h3><p>${esc(s.texto)}</p></section>`).join("")}
+    ${r.secciones.map(s=>`<section class="bloque"><h3>${esc(s.rotulo)}</h3>${pintarSeccion(s)}</section>`).join("")}
   `;
   pintarVisor(r);
   pintarAudio(r);
@@ -850,82 +891,130 @@ function abrirDeURL(){
 /* ==========================================================================
    Comentario de audio: reproducir y grabar
    ========================================================================== */
-let modoEdicion=false, clave="", grabador=null, trozos=[], blobGrabado=null, cron=null, seg=0;
+let modoEdicion=false, clave="";
+/* Estado de grabación, por slot (0,1,2). Sólo uno activo a la vez. */
+let grabador=null, trozos=[], cron=null, seg=0, slotGrabando=-1;
+const blobs=[null,null,null];   // grabación en memoria por slot, aún sin guardar
 
+/* Para reproducir un archivo de Drive con sonido hay que usar el visor
+   embebido (uc?export=download suele venir mudo o como página). */
 function urlAudioDirecta(u){
   const id=idDrive(u);
-  return id?`https://drive.google.com/uc?export=download&id=${id}`:u;
+  return id?`https://drive.google.com/file/d/${id}/preview`:u;
 }
-function pintarAudio(r){
-  const z=$("#zonaAudio");
-  z.innerHTML = r.audioURL
-    ? `<audio controls preload="none" src="${esc(urlAudioDirecta(r.audioURL))}">
-         <a href="${esc(r.audioURL)}" target="_blank" rel="noopener">Escuchar el comentario</a>
-       </audio>
-       <p style="font-size:.78rem;color:var(--tinta-3)">
-         <a href="${esc(r.audioURL)}" target="_blank" rel="noopener" style="color:var(--acento)">Abrir en Drive &nearr;</a></p>`
-    : `<p class="vacio">Todavía no hay un comentario grabado para este título.</p>`;
-  pintarGrabar(r);
-}
-function pintarGrabar(r){
-  const z=$("#zonaGrabar");
-  if(!modoEdicion){ z.innerHTML=""; return; }
-  if(!CONFIG.APPS_SCRIPT){
-    z.innerHTML=`<p class="aviso-grab mal">Falta configurar la dirección del Apps Script en CONFIG.APPS_SCRIPT
-                 para poder guardar los audios.</p>`;
-    return;
-  }
-  z.innerHTML=`
-    <div class="fila-grabar">
-      <button type="button" class="btn rojo" id="btnGrabar"><span class="bolita"></span><span id="txtGrabar">Grabar</span></button>
-      <span class="cronometro" id="cron" hidden>0:00</span>
-      <button type="button" class="btn sec" id="btnGuardar" hidden>Guardar</button>
-      <button type="button" class="btn sec" id="btnDescartar" hidden>Descartar</button>
-      ${r.audioURL?`<button type="button" class="btn sec" id="btnBorrar">Borrar comentario</button>`:""}
-    </div>
-    <div id="previa"></div>`;
-  $("#btnGrabar").onclick=()=>alternarGrabacion(r);
-  $("#btnGuardar").onclick=()=>guardarAudio(r);
-  $("#btnDescartar").onclick=()=>{ blobGrabado=null; $("#previa").innerHTML=""; sincronizarBotones(); };
-  const bb=$("#btnBorrar"); if(bb) bb.onclick=()=>borrarAudio(r);
-  sincronizarBotones();
-}
-function sincronizarBotones(){
-  const g=$("#btnGuardar"), d=$("#btnDescartar");
-  if(g) g.hidden=!blobGrabado;
-  if(d) d.hidden=!blobGrabado;
-}
+function esDrive(u){ return !!idDrive(u); }
+
 function avisar(txt,clase){ const a=$("#avisoGrab"); if(a){ a.textContent=txt; a.className="aviso-grab "+(clase||""); } }
 
-async function alternarGrabacion(r){
-  const btn=$("#btnGrabar"), txt=$("#txtGrabar"), c=$("#cron");
-  if(grabador && grabador.state==="recording"){ grabador.stop(); return; }
-  if(!navigator.mediaDevices||!window.MediaRecorder){
-    avisar("Este navegador no permite grabar audio, o la página se abrió sin servidor (file://).","mal"); return;
+/* Dibuja los tres slots de audio. */
+function pintarAudio(r){
+  const cont=$("#zonaAudios"); if(!cont) return;
+  let html="";
+  for(let i=0;i<CONFIG.MAX_AUDIOS;i++){
+    html+=`<div class="slot-audio" id="slot${i}">${contenidoSlot(r,i)}</div>`;
   }
+  cont.innerHTML=html;
+  for(let i=0;i<CONFIG.MAX_AUDIOS;i++) conectarSlot(r,i);
+}
+
+/* HTML interno de un slot: reproductor si hay audio guardado, y controles
+   de grabación si está el modo edición. */
+function contenidoSlot(r,i){
+  const url=r.audios[i];
+  const etiqueta=`Audio ${i+1}`;
+  let html=`<div class="slot-cab"><span class="slot-num">${etiqueta}</span></div>`;
+
+  if(url){
+    if(esDrive(url)){
+      html+=`<div class="slot-repro"><iframe src="${esc(urlAudioDirecta(url))}"
+                allow="autoplay" title="${etiqueta} de ${esc(r.titulo)}"></iframe></div>
+             <p class="slot-link"><a href="${esc(url)}" target="_blank" rel="noopener">Abrir en Drive &nearr;</a></p>`;
+    }else{
+      html+=`<audio controls preload="none" src="${esc(url)}"></audio>`;
+    }
+  }else{
+    html+=`<p class="vacio">Sin grabar.</p>`;
+  }
+
+  if(modoEdicion && CONFIG.APPS_SCRIPT){
+    html+=`
+      <div class="fila-grabar">
+        <button type="button" class="btn rojo" data-a="grabar" data-i="${i}">
+          <span class="bolita"></span><span data-txt="${i}">${url?"Regrabar":"Grabar"}</span></button>
+        <span class="cronometro" data-cron="${i}" hidden>0:00</span>
+        <button type="button" class="btn sec" data-a="guardar" data-i="${i}" hidden>Guardar</button>
+        <button type="button" class="btn sec" data-a="descartar" data-i="${i}" hidden>Descartar</button>
+        ${url?`<button type="button" class="btn sec" data-a="borrar" data-i="${i}">Borrar</button>`:""}
+      </div>
+      <div data-previa="${i}"></div>`;
+  }
+  return html;
+}
+
+function conectarSlot(r,i){
+  const slot=$("#slot"+i); if(!slot) return;
+  const b=a=>slot.querySelector(`[data-a="${a}"]`);
+  const g=b("grabar"); if(g) g.onclick=()=>alternarGrabacion(r,i);
+  const gu=b("guardar"); if(gu) gu.onclick=()=>guardarAudio(r,i);
+  const de=b("descartar"); if(de) de.onclick=()=>{ blobs[i]=null; limpiarPrevia(slot,i); sincronizarSlot(slot,i); };
+  const bo=b("borrar"); if(bo) bo.onclick=()=>borrarAudio(r,i);
+  sincronizarSlot(slot,i);
+}
+function limpiarPrevia(slot,i){ const p=slot.querySelector(`[data-previa="${i}"]`); if(p) p.innerHTML=""; }
+function sincronizarSlot(slot,i){
+  const gu=slot.querySelector('[data-a="guardar"]'), de=slot.querySelector('[data-a="descartar"]');
+  if(gu) gu.hidden=!blobs[i];
+  if(de) de.hidden=!blobs[i];
+}
+
+async function alternarGrabacion(r,i){
+  // Si este slot ya está grabando, detener.
+  if(grabador && grabador.state==="recording" && slotGrabando===i){ grabador.stop(); return; }
+  // Si hay otra grabación en curso, no dejar encimar.
+  if(grabador && grabador.state==="recording"){
+    avisar("Ya hay una grabación en curso en Audio "+(slotGrabando+1)+". Detenela primero.","mal"); return;
+  }
+  if(!navigator.mediaDevices||!window.MediaRecorder){
+    avisar("Este navegador no permite grabar audio, o la página se abrió sin servidor.","mal"); return;
+  }
+  const slot=$("#slot"+i);
+  const btn=slot.querySelector('[data-a="grabar"]');
+  const txt=slot.querySelector(`[data-txt="${i}"]`);
+  const c=slot.querySelector(`[data-cron="${i}"]`);
   try{
     const stream=await navigator.mediaDevices.getUserMedia({audio:true});
-    trozos=[]; blobGrabado=null; $("#previa").innerHTML=""; sincronizarBotones();
-    grabador=new MediaRecorder(stream);
+    trozos=[]; blobs[i]=null; limpiarPrevia(slot,i); sincronizarSlot(slot,i);
+    // Elegir un formato que el navegador soporte de verdad (Safari usa mp4).
+    let opciones={};
+    if(window.MediaRecorder.isTypeSupported){
+      if(MediaRecorder.isTypeSupported("audio/mp4")) opciones={mimeType:"audio/mp4"};
+      else if(MediaRecorder.isTypeSupported("audio/webm;codecs=opus")) opciones={mimeType:"audio/webm;codecs=opus"};
+      else if(MediaRecorder.isTypeSupported("audio/webm")) opciones={mimeType:"audio/webm"};
+    }
+    grabador=new MediaRecorder(stream,opciones);
+    slotGrabando=i;
     grabador.ondataavailable=e=>{ if(e.data.size) trozos.push(e.data); };
     grabador.onstop=()=>{
-      clearInterval(cron); c.hidden=true;
+      clearInterval(cron); if(c) c.hidden=true;
       stream.getTracks().forEach(t=>t.stop());
-      btn.classList.remove("grabando"); txt.textContent="Grabar de nuevo";
-      blobGrabado=new Blob(trozos,{type:grabador.mimeType||"audio/webm"});
-      $("#previa").innerHTML=`<audio controls src="${URL.createObjectURL(blobGrabado)}" style="margin-top:12px;width:100%;max-width:460px"></audio>`;
-      sincronizarBotones();
-      avisar("Escuchá la grabación y guardala si está bien.","");
+      if(btn) btn.classList.remove("grabando"); if(txt) txt.textContent="Grabar de nuevo";
+      const tipo=grabador.mimeType||opciones.mimeType||"audio/webm";
+      blobs[i]=new Blob(trozos,{type:tipo});
+      const p=slot.querySelector(`[data-previa="${i}"]`);
+      if(p) p.innerHTML=`<audio controls src="${URL.createObjectURL(blobs[i])}" style="margin-top:12px;width:100%;max-width:460px"></audio>`;
+      sincronizarSlot(slot,i);
+      slotGrabando=-1;
+      avisar("Escuchá la grabación de Audio "+(i+1)+" y guardala si está bien.","");
     };
     grabador.start();
-    seg=0; c.hidden=false; c.textContent="0:00";
+    seg=0; if(c){ c.hidden=false; c.textContent="0:00"; }
     cron=setInterval(()=>{
-      seg++; c.textContent=Math.floor(seg/60)+":"+String(seg%60).padStart(2,"0");
+      seg++; if(c) c.textContent=Math.floor(seg/60)+":"+String(seg%60).padStart(2,"0");
       if(seg>=CONFIG.MAX_SEG && grabador.state==="recording"){ grabador.stop(); avisar("Se alcanzó el máximo de duración.","");}
     },1000);
-    btn.classList.add("grabando"); txt.textContent="Detener";
-    avisar("Grabando…","");
-  }catch(e){ avisar("No se pudo acceder al micrófono: "+e.message,"mal"); }
+    if(btn) btn.classList.add("grabando"); if(txt) txt.textContent="Detener";
+    avisar("Grabando Audio "+(i+1)+"…","");
+  }catch(e){ avisar("No se pudo acceder al micrófono: "+e.message,"mal"); slotGrabando=-1; }
 }
 
 function blobABase64(b){
@@ -936,52 +1025,56 @@ function blobABase64(b){
     fr.readAsDataURL(b);
   });
 }
-async function guardarAudio(r){
-  if(!blobGrabado) return;
-  const g=$("#btnGuardar"); g.disabled=true;
-  avisar("Guardando en Drive…","");
+
+async function guardarAudio(r,i){
+  if(!blobs[i]) return;
+  const slot=$("#slot"+i);
+  const gu=slot.querySelector('[data-a="guardar"]'); if(gu) gu.disabled=true;
+  avisar("Guardando Audio "+(i+1)+" en Drive…","");
   try{
-    const b64=await blobABase64(blobGrabado);
-    // text/plain evita el pedido previo de permisos, que Apps Script no responde
+    const b64=await blobABase64(blobs[i]);
     const resp=await conCorte(fetch(CONFIG.APPS_SCRIPT,{
       method:"POST", headers:{"Content-Type":"text/plain;charset=utf-8"},
       body:JSON.stringify({
-        clave, fila:r.fila, anio:r.anio, titulo:r.titulo, medio:r.medio,
-        mime:blobGrabado.type||"audio/webm", audio:b64
+        clave, accion:"guardar", slot:i+1,          // 1, 2 o 3 → columna Audio N
+        fila:r.fila, anio:r.anio, titulo:r.titulo, medio:r.medio,
+        mime:blobs[i].type||"audio/webm", audio:b64
       })
     }),60000,"el guardado");
     const data=await resp.json();
     if(!data.ok) throw new Error(data.error||"el servidor rechazó el guardado");
-    r.audioURL=data.url;
-    blobGrabado=null;
-    avisar("Comentario guardado.","bien");
-    pintarAudio(r); aplicar();
+    r.audios[i]=data.url;
+    blobs[i]=null;
+    avisar("Audio "+(i+1)+" guardado.","bien");
+    pintarAudio(r); armarMedios(); aplicar();
   }catch(e){
-    avisar("No se pudo guardar: "+e.message+". La grabación sigue acá, podés reintentar.","mal");
-  }finally{ if(g) g.disabled=false; }
+    avisar("No se pudo guardar Audio "+(i+1)+": "+e.message+". La grabación sigue acá, podés reintentar.","mal");
+    if(gu) gu.disabled=false;
+  }
 }
 
-async function borrarAudio(r){
-  if(!confirm("¿Borrar el comentario grabado de \""+r.titulo+"\"?\n\n"+
-              "El audio va a la papelera de Drive: se puede recuperar por 30 días.")) return;
-  const b=$("#btnBorrar"); if(b) b.disabled=true;
-  avisar("Borrando…","");
+async function borrarAudio(r,i){
+  if(!confirm("¿Borrar el Audio "+(i+1)+" de \""+r.titulo+"\"?\n\n"+
+              "El archivo va a la papelera de Drive: se puede recuperar por 30 días.")) return;
+  const slot=$("#slot"+i);
+  const bo=slot.querySelector('[data-a="borrar"]'); if(bo) bo.disabled=true;
+  avisar("Borrando Audio "+(i+1)+"…","");
   try{
     const resp=await conCorte(fetch(CONFIG.APPS_SCRIPT,{
       method:"POST", headers:{"Content-Type":"text/plain;charset=utf-8"},
       body:JSON.stringify({
-        clave, accion:"borrar",
+        clave, accion:"borrar", slot:i+1,
         fila:r.fila, anio:r.anio, titulo:r.titulo, medio:r.medio
       })
     }),30000,"el borrado");
     const data=await resp.json();
     if(!data.ok) throw new Error(data.error||"el servidor rechazó el borrado");
-    r.audioURL=null;
-    avisar("Comentario borrado.","bien");
+    r.audios[i]=null;
+    avisar("Audio "+(i+1)+" borrado.","bien");
     pintarAudio(r); armarMedios(); aplicar();
   }catch(e){
-    avisar("No se pudo borrar: "+e.message,"mal");
-    if(b) b.disabled=false;
+    avisar("No se pudo borrar Audio "+(i+1)+": "+e.message,"mal");
+    if(bo) bo.disabled=false;
   }
 }
 
